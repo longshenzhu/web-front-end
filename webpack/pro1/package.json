@@ -1,0 +1,16 @@
+{
+  "scripts": {
+    "test": "webpack"
+  },
+  "name": "pro1",
+  "version": "1.0.0",
+  "description": "nodes",
+  "main": "index.js",
+  "author": "yanpin",
+  "license": "ISC",
+  "devDependencies": {
+    "html-webpack-plugin": "^4.3.0",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  }
+}

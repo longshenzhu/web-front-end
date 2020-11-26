@@ -1,0 +1,278 @@
+{
+  "keys": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\config\\config.default.js",
+  "view": {
+    "defaultViewEngine": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\config\\config.default.js",
+    "mapping": {
+      ".tpl": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\config\\config.default.js"
+    },
+    "root": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-view\\config\\config.default.js",
+    "cache": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-view\\config\\config.local.js",
+    "defaultExtension": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-view\\config\\config.default.js"
+  },
+  "news": {
+    "pageSize": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\config\\config.default.js",
+    "serverUrl": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\config\\config.default.js"
+  },
+  "session": {
+    "maxAge": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-session\\config\\config.default.js",
+    "key": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-session\\config\\config.default.js",
+    "httpOnly": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-session\\config\\config.default.js",
+    "encrypt": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-session\\config\\config.default.js"
+  },
+  "security": {
+    "domainWhiteList": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-security\\config\\config.default.js",
+    "protocolWhiteList": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-security\\config\\config.default.js",
+    "defaultMiddleware": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-security\\config\\config.default.js",
+    "csrf": {
+      "enable": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-security\\config\\config.default.js",
+      "type": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-security\\config\\config.default.js",
+      "ignoreJSON": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-security\\config\\config.default.js",
+      "useSession": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-security\\config\\config.default.js",
+      "cookieName": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-security\\config\\config.default.js",
+      "sessionName": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-security\\config\\config.default.js",
+      "headerName": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-security\\config\\config.default.js",
+      "bodyName": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-security\\config\\config.default.js",
+      "queryName": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-security\\config\\config.default.js",
+      "refererWhiteList": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "xframe": {
+      "enable": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-security\\config\\config.default.js",
+      "value": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "hsts": {
+      "enable": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-security\\config\\config.local.js",
+      "maxAge": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-security\\config\\config.default.js",
+      "includeSubdomains": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "dta": {
+      "enable": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "methodnoallow": {
+      "enable": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "noopen": {
+      "enable": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "nosniff": {
+      "enable": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "referrerPolicy": {
+      "enable": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-security\\config\\config.default.js",
+      "value": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "xssProtection": {
+      "enable": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-security\\config\\config.default.js",
+      "value": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "csp": {
+      "enable": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-security\\config\\config.default.js",
+      "policy": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "ssrf": {
+      "ipBlackList": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-security\\config\\config.default.js",
+      "checkAddress": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-security\\config\\config.default.js"
+    }
+  },
+  "helper": {
+    "shtml": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-security\\config\\config.default.js"
+  },
+  "jsonp": {
+    "limit": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-jsonp\\config\\config.default.js",
+    "callback": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-jsonp\\config\\config.default.js",
+    "csrf": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-jsonp\\config\\config.default.js"
+  },
+  "onerror": {
+    "errorPageUrl": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-onerror\\config\\config.default.js",
+    "appErrorFilter": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-onerror\\config\\config.default.js",
+    "templatePath": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-onerror\\config\\config.default.js"
+  },
+  "i18n": {
+    "defaultLocale": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-i18n\\config\\config.default.js",
+    "dirs": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-i18n\\config\\config.default.js",
+    "queryField": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-i18n\\config\\config.default.js",
+    "cookieField": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-i18n\\config\\config.default.js",
+    "cookieDomain": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-i18n\\config\\config.default.js",
+    "cookieMaxAge": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-i18n\\config\\config.default.js"
+  },
+  "watcher": {
+    "type": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-watcher\\config\\config.local.js",
+    "eventSources": {
+      "default": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-watcher\\config\\config.default.js",
+      "development": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-watcher\\config\\config.default.js"
+    }
+  },
+  "customLogger": {
+    "scheduleLogger": {
+      "consoleLevel": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-schedule\\config\\config.default.js",
+      "file": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-schedule\\config\\config.default.js"
+    }
+  },
+  "schedule": {
+    "directory": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-schedule\\config\\config.default.js"
+  },
+  "multipart": {
+    "mode": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-multipart\\config\\config.default.js",
+    "autoFields": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-multipart\\config\\config.default.js",
+    "defaultCharset": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fieldNameSize": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fieldSize": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fields": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fileSize": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-multipart\\config\\config.default.js",
+    "files": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fileExtensions": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-multipart\\config\\config.default.js",
+    "whitelist": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-multipart\\config\\config.default.js",
+    "tmpdir": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-multipart\\config\\config.default.js",
+    "cleanSchedule": {
+      "cron": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-multipart\\config\\config.default.js"
+    }
+  },
+  "development": {
+    "watchDirs": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-development\\config\\config.default.js",
+    "ignoreDirs": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-development\\config\\config.default.js",
+    "fastReady": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-development\\config\\config.default.js",
+    "reloadOnDebug": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-development\\config\\config.default.js",
+    "overrideDefault": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-development\\config\\config.default.js"
+  },
+  "logrotator": {
+    "filesRotateByHour": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "hourDelimiter": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "filesRotateBySize": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxFileSize": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxFiles": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "rotateDuration": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxDays": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-logrotator\\config\\config.default.js"
+  },
+  "static": {
+    "prefix": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-static\\config\\config.default.js",
+    "dir": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-static\\config\\config.default.js",
+    "dynamic": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-static\\config\\config.default.js",
+    "preload": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-static\\config\\config.default.js",
+    "buffer": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-static\\config\\config.default.js",
+    "maxFiles": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-static\\config\\config.default.js"
+  },
+  "nunjucks": {
+    "autoescape": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-view-nunjucks\\config\\config.default.js",
+    "throwOnUndefined": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-view-nunjucks\\config\\config.default.js",
+    "trimBlocks": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-view-nunjucks\\config\\config.default.js",
+    "lstripBlocks": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-view-nunjucks\\config\\config.default.js",
+    "cache": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg-view-nunjucks\\config\\config.local.js"
+  },
+  "env": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+  "name": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+  "cookies": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+  "proxy": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+  "maxIpsCount": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+  "maxProxyCount": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+  "protocolHeaders": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+  "ipHeaders": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+  "hostHeaders": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+  "pkg": {
+    "name": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "version": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "description": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "main": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "scripts": {
+      "dev": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+      "test": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js"
+    },
+    "author": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "license": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "dependencies": {
+      "egg": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+      "egg-view-nunjucks": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js"
+    },
+    "devDependencies": {
+      "egg-bin": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js"
+    }
+  },
+  "baseDir": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+  "HOME": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+  "rundir": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+  "dump": {
+    "ignore": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js"
+  },
+  "confusedConfigurations": {
+    "bodyparser": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "notFound": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "sitefile": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "middlewares": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "httpClient": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js"
+  },
+  "notfound": {
+    "pageUrl": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js"
+  },
+  "siteFile": {
+    "/favicon.ico": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js"
+  },
+  "bodyParser": {
+    "enable": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "encoding": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "formLimit": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "jsonLimit": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "textLimit": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "strict": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "queryString": {
+      "arrayLimit": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+      "depth": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+      "parameterLimit": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js"
+    },
+    "onerror": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js"
+  },
+  "logger": {
+    "dir": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "encoding": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "env": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "level": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "consoleLevel": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "disableConsoleAfterReady": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "outputJSON": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "buffer": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "appLogName": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "coreLogName": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "agentLogName": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "errorLogName": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "coreLogger": {
+      "consoleLevel": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.local.js"
+    },
+    "allowDebugAtProd": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js"
+  },
+  "httpclient": {
+    "enableDNSCache": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "dnsCacheLookupInterval": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "dnsCacheMaxLength": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "request": {
+      "timeout": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js"
+    },
+    "httpAgent": {
+      "keepAlive": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+      "freeSocketTimeout": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+      "maxSockets": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+      "maxFreeSockets": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js"
+    },
+    "httpsAgent": {
+      "keepAlive": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+      "freeSocketTimeout": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+      "maxSockets": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+      "maxFreeSockets": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js"
+    }
+  },
+  "meta": {
+    "enable": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "logging": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js"
+  },
+  "coreMiddleware": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+  "workerStartTimeout": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+  "serverTimeout": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+  "cluster": {
+    "listen": {
+      "path": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+      "port": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+      "hostname": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js"
+    }
+  },
+  "clusterClient": {
+    "maxWaitTime": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "responseTimeout": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js"
+  },
+  "onClientError": "G:\\MyBook\\LixiaobingDeKe\\workspace\\Node\\egg-example\\node_modules\\egg\\config\\config.default.js"
+}

@@ -1,0 +1,39 @@
+2020-08-05 18:02:17,239 INFO 16272 [Timer] G:\MyBook\LixiaobingDeKe\workspace\Node\egg-example\node_modules\egg-multipart\app\schedule\clean_tmpdir.js next time will execute after 37662765ms at 2020-08-06 04:30:00.004
+2020-08-05 18:02:17,239 INFO 16272 [Timer] G:\MyBook\LixiaobingDeKe\workspace\Node\egg-example\node_modules\egg-logrotator\app\schedule\clean_log.js next time will execute after 21462761ms at 2020-08-06 00:00:00.000
+2020-08-05 18:02:17,239 INFO 16272 [Timer] G:\MyBook\LixiaobingDeKe\workspace\Node\egg-example\node_modules\egg-logrotator\app\schedule\rotate_by_file.js next time will execute after 21463761ms at 2020-08-06 00:00:01.000
+2020-08-05 18:02:17,057 INFO 2348 [egg-schedule]: register schedule G:\MyBook\LixiaobingDeKe\workspace\Node\egg-example\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2020-08-05 18:02:17,057 INFO 2348 [egg-schedule]: register schedule G:\MyBook\LixiaobingDeKe\workspace\Node\egg-example\node_modules\egg-logrotator\app\schedule\clean_log.js
+2020-08-05 18:02:17,057 INFO 2348 [egg-schedule]: register schedule G:\MyBook\LixiaobingDeKe\workspace\Node\egg-example\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2020-08-05 18:10:13,043 INFO 15520 [Timer] G:\MyBook\LixiaobingDeKe\workspace\Node\egg-example\node_modules\egg-multipart\app\schedule\clean_tmpdir.js next time will execute after 37186961ms at 2020-08-06 04:30:00.004
+2020-08-05 18:10:13,043 INFO 15520 [Timer] G:\MyBook\LixiaobingDeKe\workspace\Node\egg-example\node_modules\egg-logrotator\app\schedule\clean_log.js next time will execute after 20986957ms at 2020-08-06 00:00:00.000
+2020-08-05 18:10:13,043 INFO 15520 [Timer] G:\MyBook\LixiaobingDeKe\workspace\Node\egg-example\node_modules\egg-logrotator\app\schedule\rotate_by_file.js next time will execute after 20987957ms at 2020-08-06 00:00:01.000
+2020-08-05 18:10:12,849 INFO 1372 [egg-schedule]: register schedule G:\MyBook\LixiaobingDeKe\workspace\Node\egg-example\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2020-08-05 18:10:12,849 INFO 1372 [egg-schedule]: register schedule G:\MyBook\LixiaobingDeKe\workspace\Node\egg-example\node_modules\egg-logrotator\app\schedule\clean_log.js
+2020-08-05 18:10:12,849 INFO 1372 [egg-schedule]: register schedule G:\MyBook\LixiaobingDeKe\workspace\Node\egg-example\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2020-08-05 18:10:44,382 INFO 7348 [egg-schedule]: register schedule G:\MyBook\LixiaobingDeKe\workspace\Node\egg-example\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2020-08-05 18:10:44,382 INFO 7348 [egg-schedule]: register schedule G:\MyBook\LixiaobingDeKe\workspace\Node\egg-example\node_modules\egg-logrotator\app\schedule\clean_log.js
+2020-08-05 18:10:44,382 INFO 7348 [egg-schedule]: register schedule G:\MyBook\LixiaobingDeKe\workspace\Node\egg-example\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2020-08-07 11:33:13,894 INFO 17388 [Timer] G:\MyBook\LixiaobingDeKe\workspace\Node\egg-example\node_modules\egg-multipart\app\schedule\clean_tmpdir.js next time will execute after 61006110ms at 2020-08-08 04:30:00.004
+2020-08-07 11:33:13,894 INFO 17388 [Timer] G:\MyBook\LixiaobingDeKe\workspace\Node\egg-example\node_modules\egg-logrotator\app\schedule\clean_log.js next time will execute after 44806106ms at 2020-08-08 00:00:00.000
+2020-08-07 11:33:13,895 INFO 17388 [Timer] G:\MyBook\LixiaobingDeKe\workspace\Node\egg-example\node_modules\egg-logrotator\app\schedule\rotate_by_file.js next time will execute after 44807106ms at 2020-08-08 00:00:01.001
+2020-08-07 11:33:13,685 INFO 3876 [egg-schedule]: register schedule G:\MyBook\LixiaobingDeKe\workspace\Node\egg-example\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2020-08-07 11:33:13,685 INFO 3876 [egg-schedule]: register schedule G:\MyBook\LixiaobingDeKe\workspace\Node\egg-example\node_modules\egg-logrotator\app\schedule\clean_log.js
+2020-08-07 11:33:13,685 INFO 3876 [egg-schedule]: register schedule G:\MyBook\LixiaobingDeKe\workspace\Node\egg-example\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2020-08-07 11:36:28,864 INFO 13208 [egg-schedule]: register schedule G:\MyBook\LixiaobingDeKe\workspace\Node\egg-example\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2020-08-07 11:36:28,864 INFO 13208 [egg-schedule]: register schedule G:\MyBook\LixiaobingDeKe\workspace\Node\egg-example\node_modules\egg-logrotator\app\schedule\clean_log.js
+2020-08-07 11:36:28,864 INFO 13208 [egg-schedule]: register schedule G:\MyBook\LixiaobingDeKe\workspace\Node\egg-example\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2020-08-07 11:39:02,487 INFO 1300 [egg-schedule]: register schedule G:\MyBook\LixiaobingDeKe\workspace\Node\egg-example\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2020-08-07 11:39:02,487 INFO 1300 [egg-schedule]: register schedule G:\MyBook\LixiaobingDeKe\workspace\Node\egg-example\node_modules\egg-logrotator\app\schedule\clean_log.js
+2020-08-07 11:39:02,487 INFO 1300 [egg-schedule]: register schedule G:\MyBook\LixiaobingDeKe\workspace\Node\egg-example\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2020-08-07 11:39:58,966 INFO 17172 [egg-schedule]: register schedule G:\MyBook\LixiaobingDeKe\workspace\Node\egg-example\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2020-08-07 11:39:58,966 INFO 17172 [egg-schedule]: register schedule G:\MyBook\LixiaobingDeKe\workspace\Node\egg-example\node_modules\egg-logrotator\app\schedule\clean_log.js
+2020-08-07 11:39:58,966 INFO 17172 [egg-schedule]: register schedule G:\MyBook\LixiaobingDeKe\workspace\Node\egg-example\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2020-08-07 11:40:29,443 INFO 15748 [egg-schedule]: register schedule G:\MyBook\LixiaobingDeKe\workspace\Node\egg-example\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2020-08-07 11:40:29,443 INFO 15748 [egg-schedule]: register schedule G:\MyBook\LixiaobingDeKe\workspace\Node\egg-example\node_modules\egg-logrotator\app\schedule\clean_log.js
+2020-08-07 11:40:29,443 INFO 15748 [egg-schedule]: register schedule G:\MyBook\LixiaobingDeKe\workspace\Node\egg-example\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2020-08-07 11:45:50,283 INFO 11288 [egg-schedule]: register schedule G:\MyBook\LixiaobingDeKe\workspace\Node\egg-example\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2020-08-07 11:45:50,283 INFO 11288 [egg-schedule]: register schedule G:\MyBook\LixiaobingDeKe\workspace\Node\egg-example\node_modules\egg-logrotator\app\schedule\clean_log.js
+2020-08-07 11:45:50,283 INFO 11288 [egg-schedule]: register schedule G:\MyBook\LixiaobingDeKe\workspace\Node\egg-example\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2020-08-07 17:19:37,678 INFO 11904 [egg-schedule]: register schedule G:\MyBook\LixiaobingDeKe\workspace\Node\egg-example\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2020-08-07 17:19:37,678 INFO 11904 [egg-schedule]: register schedule G:\MyBook\LixiaobingDeKe\workspace\Node\egg-example\node_modules\egg-logrotator\app\schedule\clean_log.js
+2020-08-07 17:19:37,678 INFO 11904 [egg-schedule]: register schedule G:\MyBook\LixiaobingDeKe\workspace\Node\egg-example\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
