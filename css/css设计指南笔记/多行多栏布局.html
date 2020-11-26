@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>An HTML Template</title>
+        <style type="text/css">
+            *{
+                margin:0;
+                padding:0;
+            }
+            body {
+                font-family:helvetica, arial, sans-serif; 
+            }
+            #wrapper{
+                width:960px;
+                margin:0 auto;
+                border:1px solid #6b5678;
+            }
+            header{
+                background-color: #a292ac;
+                padding:3px 10px;
+            }
+            header h1{
+                font-family:Metrophobic;
+                font-size:2.5em;
+                letter-spacing:-.05em;
+                color:#fff;
+            }
+            nav{
+                background:#f7923a;
+                padding:3px 10px;
+            }
+            section#branding img {
+                display:block;
+            }
+
+            #feature_area article{
+                display: table-cell;
+                padding:10px 0;
+                background:#fff;
+                border-top:4px solid #f7be84;
+            }
+            #feature_area article .inner {
+                margin:10px 20px;
+                padding:5px;
+                background:#fff;
+                border:5px solid;
+            }
+            #feature_area article:nth-child(2) {
+                background:#e5e8ed;
+            }
+            #feature_area article:nth-child(1) .inner {
+                border-color:#d7dd6f;
+            }
+            #feature_area article:nth-child(2) .inner {
+                border-color:#f6dec5;
+            }
+            #feature_area article:nth-child(3) .inner {
+                border-color:#d1d8e4;
+            }
+            #feature_area article p {
+                font-family:'Open Sans';
+                font-weight:300;
+                font-size:1.15em;
+                line-height:1em;
+                text-align:center;
+                color:#616161;
+            }
+            #promo_area article{
+                float:left;
+                width:240px;
+                padding:10px 0;
+                border-top:4px solid #f7be84;
+                background:#fff;
+            }
+            #promo_area article .inner {
+                margin:0 20px;
+                padding:10px;
+                background:#e5e8ed;
+            }
+            #promo_area article p {
+                font-family:'Open Sans Condensed';
+                font-weight:300;
+                font-size:1em;
+                line-height:1.5em;
+                color:#616161;
+            }
+            footer {
+                clear:both;
+                text-align:center;
+                background:#6b5678;
+            }
+            footer p {
+                font-family:'Open Sans';
+                font-weight:600;
+                font-size:.7em;
+                letter-spacing:-.05em;
+                color:#fff;
+            }
+            footer a {
+                font-family:'Open Sans';
+                font-weight:700 italic;
+                font-size:1em;
+                color:#f7be84;
+                text-decoration:none;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrapper">
+            <header>
+                <h1>Full-width content</h1>
+            </header>
+            <nav>
+                <p>Navigation menus go here</p>
+            </nav>
+            <section id="branding">
+                <img src="img/grand_canyon.jpg" alt="Grand Canyon Sunset" />
+            </section>
+            <section id="feature_area">
+                <article>
+                    <div class="inner">
+                        <p>Integer at neque in magna lacinia bibendum sit amet sit amet dolor.</p>
+                    </div>
+                </article>
+                
+                <article>
+                    <div class="inner">
+                        <p>Integer at neque in magna lacinia bibendum sit amet sit amet dolor.</p>
+                    </div>
+                </article>
+                
+                <article>
+                    <div class="inner">
+                        <p>Integer at neque in magna lacinia bibendum sit amet sit amet dolor.</p>
+                    </div>
+                </article>
+            </section>
+            <section id="promo_area">
+                <article>
+                    <div class="inner">
+                        <p>Integer at neque in magna lacinia bibendum sit amet sit amet dolor. Nam consequat ullamcorper eros, sed bibendum metus faucibus sit amet.</p>
+                    </div>
+                </article>
+                
+                <article>
+                    <div class="inner">
+                        <p>Integer at neque in magna lacinia bibendum sit amet sit amet dolor. Nam consequat ullamcorper eros, sed bibendum metus faucibus sit amet.</p>
+                    </div>
+                </article>
+                
+                <article>
+                    <div class="inner">
+                        <p>Integer at neque in magna lacinia bibendum sit amet sit amet dolor. Nam consequat ullamcorper eros, sed bibendum metus faucibus sit amet.</p>
+                    </div>
+                </article>
+                <article>
+                    <div class="inner">
+                        <p>Integer at neque in magna lacinia bibendum sit amet sit amet dolor. Nam consequat ullamcorper eros, sed bibendum metus faucibus sit amet.</p>
+                    </div>
+                </article>
+            </section>
+            <footer>
+                <p>A CSS template from <a href="http://www.stylinwithcss.com"><em>Stylin&rsquo;
+                        with CSS, Third Edition</em></a> by Charles Wyke-Smith</p>    </footer>
+            </footer>
+        </div>
+    </body>
+</html>

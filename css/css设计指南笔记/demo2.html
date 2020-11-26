@@ -1,0 +1,85 @@
+<!DOCTYPE  html>
+<html>
+    <head>
+        <meta  charset="utf-8"  />
+        <title>An  HTML  Template</title>
+        <link href="css/style.css"  rel="stylesheet" />
+        <style>
+            /*删除所有元素的外边距*/ 
+            *{
+                margin:0;
+                padding:0;
+            }
+            /*设定主字体族和字体大小*/ 
+            body{
+                font:1.0em  helvetica,  arial,  sans-serif;
+            }
+            /* 居中显示盒子 */
+            article  
+            {
+                width:500px;
+                border:2px  solid  #999;
+                padding:20px;
+                margin:20px  auto;
+            }
+            /*标题周围的空白*/ 
+            h1,  h2,  h3,  h4,  h5,  h6  
+            {
+                line-height:1.15em;
+                margin-bottom:.1em;
+            }
+            /*文本元素周围的空白*/ 
+            p, ul, blockquote  
+            {
+                line-height:1.15em;
+                margin-bottom:.75em;
+            } 
+            /*缩进列表*/ 
+            ul{
+                margin-left:32px;
+            }
+
+            /*调整标题文本*/ 
+            h1{font-size:1.9em;} 
+            h2{font-size:1.6em;} 
+            h3{font-size:1.4em;} 
+            h4{font-size:1.2em;} 
+            h5{font-size:1em;} 
+            h6{font-size:.9em;} 
+            /*调整段落文本*/ 
+            p{
+                font-size:.9em;
+            } 
+            /*调整代码文本（默认值太小了）*/ 
+            code{
+                font-size:1.3em;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <article>         
+                <h1>CSS</h1>         
+                <p>CSS  stands  for  Cascading  Style  Sheets.  CSS  controls  the  presentational  aspects  of  your  Web  pages.</p>         
+                <h2>Block-Level  Elements</h2>         
+                <p>Block-level  elements  stack  down  the  page.  They  include:</p>         
+                <ul>                 
+                    <li><code>header</code></li>                 
+                    <li><code>section</code></li>                 
+                    <li><code>h1,  h2,  etc.</code></li>         
+                </ul>
+                <h2>Inline  Elements</h2>         
+                <p>Inline  elements  sit  next  to  each  other,  if  there  is  room.  They  include:</p>         
+                <ul>                 
+                    <li><code>img</code></li>                 
+                    <li><code>a</code></li>                 
+                    <li><code>em</code></li>         
+                </ul>         
+                <blockquote>
+                    <q>Typography  maketh  the  Web  site.</q><cite>CWS</cite>         
+                </blockquote> 
+            </article>
+        </div>
+    </body>
+</html>
+

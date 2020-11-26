@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>An HTML Template</title>
+        <style type="text/css">
+            *{
+                margin:0;
+                padding:0;
+            }
+
+            /*复杂功能推荐视觉样式和功能样式分开写 */
+            /*视觉样式：字体大小、边框、文本颜色*/
+            .multi_drop_menu{
+                font :1em helvetica,arial,sans-serif;
+            }
+
+            .multi_drop_menu a{
+                display: block;
+                padding: .2em 1em;
+                color:#555;
+                background-color: #eee;
+                border-width: 3px;
+                border-color: transparent;
+            }
+            
+            .multi_drop_menu a:hover{
+                color:#fff;
+                background-color:#aaa;
+            }
+
+            .multi_drop_menu a:active{
+                background-color:#fff;
+                color: blue;
+            }
+            /*功能样式：布局和行为*/
+            /*强制ui包围li*/
+            .multi_drop_menu ul{
+                float:left;
+                /*overflow: hidden; 这种方式在下拉菜单中会导致问题*/ 
+            }
+            .multi_drop_menu li{
+                float:left;
+                list-style-type: none;
+                /*为子菜单提供定位上下文*/
+                position: relative;
+            }
+            
+            .multi_drop_menu li a{
+                display: block;
+                /*给每个链接添加一个右边框*/
+                border-right-style: solid;
+                /*背景只出现在内边距区域后面*/
+                background-clip:padding-box;
+                text-decoration: none;
+            }
+            .multi_drop_menu li:last-child a{
+                border-right-style:none;
+            }
+
+            .multi_drop_menu li ul{
+                display: none;
+            }
+
+            /*添加的视觉样式*/
+            .multi_drop_menu li ul{
+                width: 9em;
+            }
+            .multi_drop_menu li li a{
+                /*去掉继承哦右边框*/
+                border-right-style:none;
+                /*添加上边框*/
+                border-top-style:solid;
+            }
+
+            /*添加的功能样式*/
+            .multi_drop_menu li ul{
+                /*隐藏二级下拉菜单*/
+                display: none;
+                position: absolute;
+                left:0;
+                top:100%;
+            }
+            .multi_drop_menu li li{
+                float:none;
+            }
+            .multi_drop_menu li li ul{
+                display: none;
+                position: absolute;
+                left:100%;
+                top:0;
+            }
+            /*下拉菜单事件响应*/
+            .multi_drop_menu li:hover > ul{
+                /*临时显示二级下拉菜单*/
+                display: block;
+            }
+
+            .multi_drop_menu li li:hover> ul{
+                display: block;
+            }
+
+            /*顶级菜单垂直显示*/
+            .multi_drop_menu.vertical{
+                width:8em;
+            }
+            .multi_drop_menu.vertical li li a{
+                border-right-style:none;
+                border-top-style:solid;
+            }
+            .multi_drop_menu.vertical ul,
+            .multi_drop_menu.vertical li{
+                /*顶级菜单垂直显示*/
+                float:none;
+            }
+
+            .multi_drop_menu.vertical li ul{
+                /*子菜单左边与上一级菜单右边对齐*/
+                left:100%;
+                top:0;
+            }
+            /*因为:hover事件会沿着元素的结构层次“向上冒泡”。*/
+            .multi_drop_menu li:hover > a{
+                /*悬停时的文本颜色*/
+                color:#fff;
+                /*悬停时的背景颜色*/
+                background-color:#aaa;
+            }
+
+        </style>
+    </head>
+    <body>
+        <!--下拉列表-->
+        <nav class="multi_drop_menu">
+            <!--一级开始-->
+            <ul>
+                <li>
+                    <a href="#">Power</a>
+                </li>
+                <li>
+                    <a href="#">Money</a>
+                </li>
+                <li>
+                    <a href="#">Love</a>
+                </li>
+                <li>
+                    <a href="#">Fame</a>
+                    <!--二级开始-->
+                    <ul>
+                        <li>
+                            <a href="#">Sports</a>
+                        </li>
+                        <li>
+                            <a href="#">Movie</a>
+                        </li>
+                        <li>
+                            <a href="#">Rock</a>
+                            <!--三级开始-->
+                            <ul>
+                                <li>
+                                    <a href="#">Your body is my woderland</a>
+                                </li>
+                                <li>
+                                    <a href="#">The old man</a>
+                                </li>
+                                <li>
+                                    <a href="#">Morning</a>
+                                    
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Web designer</a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </nav>
+    </body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" /> 
+    <title>弹出层</title>
+    <style>
+        *{
+            margin:0; 
+            padding:0; 
+            font-family:helvetica, arial, sans-serif;
+        }
+        figure{
+            width:144px;
+            height: 153px;
+            margin:20px 20px;
+            border:1px solid #666;
+            position:relative;
+            float:left;
+        }
+        img{
+            display: block;             /*去掉图片下方的基线空白*/
+        }
+
+        figcaption{
+            display: none;
+            position: absolute;
+            left:74%;top:14px;          /* 把弹出层放到图片右侧*/
+            width:130px;
+            padding:10px;
+            background:#f2eaea;
+            border:3px solid red;
+            border-radius:6px;
+        }
+        figure:hover figcaption{
+            display: block;
+            z-index: 2;                 /* z-index只对position值为absolute、relative或fixed定位有效 */
+        }
+        figcaption h3{
+            font-size:14px;
+            color:#666;
+            margin-bottom:6px;
+        }
+        figcaption a{
+            display: block;
+            text-decoration: none;
+            font-size:12px;
+            color:#000;
+        }
+
+        figcaption::after{                  /*制作红色三角盒子*/
+            content:"";                     /*需要有空内容*/
+            position:absolute;
+            border:12px solid;
+            border-color:transparent red transparent transparent;
+            right: 100%; top:17px;          /*相对于盒子边框定位三角形*/
+            height: 0px; width:0px;         /*收缩边框创造三角形*/
+        }
+    </style>
+</head>
+
+<body>
+	<figure>
+    	<img src="img/pink_heels.jpg" alt="pink heels" />
+    	<figcaption>
+        	<h3>Pink Platforms</h3>
+        	<a href="#">More info</a>
+        </figcaption>
+    </figure>
+    <figure class="click_me">
+    	<img src="img/leopard_heels.jpg" alt="leopard heels" />
+    	<figcaption>
+        	<h3>Leopard Platforms</h3>
+        	<a href="#">More info</a>
+        </figcaption>
+    </figure>
+    <figure class="click_me">
+    	<img src="img/red_heels.jpg" alt="red heels" />
+    	<figcaption>
+        	<h3>Red Platforms</h3>
+        	<a href="#">More info</a>
+        </figcaption>
+    </figure>
+</body>
+
+</html>

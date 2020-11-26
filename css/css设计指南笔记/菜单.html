@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>An HTML Template</title>
+        <style type="text/css">
+            *{
+                margin:0;
+                padding:0;
+            }
+            
+            /*垂直菜单样式 */
+            .menu-y{
+                margin: 50px;
+                width: 150px;
+            }
+            .menu-y ul{
+                border: 1px solid #f00;
+                border-radius: 3px;
+                padding: 5px 10px 3px;
+            }
+            .menu-y li{
+                list-style-type: none;
+            }
+            .menu-y li + li a{
+                border-top:1px solid #f00;
+            }
+            .menu-y a{
+                display: block;
+                padding: 3px 10px;
+                text-decoration-line: none;
+                font-weight: 400;
+                color:#000;
+            }
+            .menu-y a:hover{
+                color:blue;
+            }
+
+            /*水平菜单样式 */
+            .menu-x{
+                margin: 50px;
+            }
+            .menu-x ul{
+                /*将ul边框显示出来*/
+                border:1px solid #f00;  
+                /*强制ul包围浮动的li元素*/
+                overflow: hidden;
+            }
+            .menu-x li{
+                list-style-type: none;
+                float:left;
+            }
+            .menu-x a{
+                display: block;
+                padding: 0 16px;
+                text-decoration: none;
+                color:#000;
+            }
+            .menu-x li + li a{
+                border-left:1px solid #aaa;
+            }
+            .menu-x a:hover{
+                color:blue;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 垂直菜单 -->
+        <nav class="menu-y">
+            <ul>
+                <li>
+                    <a href="#">Alternative</a>
+                </li>
+                <li>
+                    <a href="#">Country</a>
+                </li>
+                <li>
+                    <a href="#">Jazz</a>
+                </li>
+                <li>
+                    <a href="#">Rock</a>
+                </li>
+            </ul>
+        </nav>
+        <!-- 水平菜单 -->
+        <nav class="menu-x">
+            <ul>
+                <li>
+                    <a href="#">Alternative</a>
+                </li>
+                <li>
+                    <a href="#">Country</a>
+                </li>
+                <li>
+                    <a href="#">Jazz</a>
+                </li>
+                <li>
+                    <a href="#">Rock</a>
+                </li>
+            </ul>
+        </nav>
+    </body>
+</html>

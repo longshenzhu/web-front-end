@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" /> 
+    <title>基本form表单</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!--<link type="text/css" href="css/fig6-13.css" rel="stylesheet" /> -->
+    <script
+        src="http://code.jquery.com/jquery-1.12.4.js"
+        integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
+        crossorigin="anonymous"></script>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        body {
+            font-family:helvetica, arial, sans-serif;
+        }
+
+        .stylin_form1{
+            width:14em;
+            margin:20px auto;
+            border:1px solid #bbb7ae;
+            padding:.5em .5em .15em;
+        }
+
+        .stylin_form1 h3{
+            margin:0;
+            padding:0 0 .2em 0;
+            width:100%;
+            border:0;
+        }
+        .stylin_form1 fieldset{
+            margin:0;
+            padding:0 0 .2em 0;
+            widows: 100%;
+            border:0;
+        }
+        .stylin_form1 legend{
+            width:100%;
+            padding:.3em 0;
+            background:#bbb7ae;
+        }
+        .stylin_form1 legend span{
+            display: block;
+            font-size: 1em;
+            line-height:1.1em;
+            padding:0 0 0 .4em;
+            font-weight: 700;
+            color:#fff;
+        }
+
+        .stylin_form1 section{
+            overflow: hidden;   /* 强制section包含表单控件及标注 */
+            padding:.2em 0 .4em 0;
+            border-bottom: 8px solid #e7e5df;   /* 根据需要在控件组间增加间距 */
+        }
+        .stylin_form1 section:last-child{
+            border-bottom:0px;
+        }
+
+        .stylin_form1 section label,
+        .stylin_form1 section h4{
+            display: block;
+            clear:both;
+            margin:.3em .3em 0 0;
+            padding-bottom:.1em;
+            font-size:.8em;
+            font-family: 'Droid Sans';
+            font-weight: 400;
+            line-height: 1.1;
+        }
+        .stylin_form1 section label span,
+        .stylin_form1 section h4 span{
+            font-size:.75em;
+            vertical-align: text-top;
+            color:#f00;
+        }
+        .stylin_form1 section p.note{
+            font-size:.7em;
+            color:#f00;
+            margin: 0;
+            padding: 0 0 .3em 0;
+        }
+        .stylin_form1 section input,
+        .stylin_form1 section textarea,
+        .stylin_form1 section select{
+            margin:.2em .5em .2em 0;
+            padding:.2em .4em;    /* 给input中的文本添加间距 */
+            color:#000;
+            box-shadow: 1px 1px 3px #ccc;
+            font-size:.8em;
+            font-family:inherit;
+            outline:none;         /* 去掉默认蓝色聚焦轮廓线 */            
+        }
+        /* 设定文本字段的样式，并加圆角 */
+        .stylin_form1 section input,
+        .stylin_form1 section textarea{
+            width:12em;
+            border:1px solid #bbb7ae;
+            border-radius:3px;
+        }
+        .stylin_form1 section textarea{
+            height: 5em;
+            margin-top: .3em;
+            line-height: 1.1;
+        }
+        .stylin_form1 section p{
+            margin:.3em .75em 0;
+            clear:both;
+            font-size:.7em;
+            line-height:1.1;
+            color:#000;
+        }
+        .stylin_form1 section p.error{
+            color:#f00;
+        }
+
+        .stylin_form1 section section{
+            overflow: hidden;
+            margin:.2em 0 .3em .4em;
+            padding:0 0 .1em 0;
+            border-bottom:none;
+        }
+        .stylin_form1 section section input{
+            float:left;
+            clear:both;
+            width:auto;    /* 重新设置继承的宽度 */
+            margin:.1em 0 0em .3em;
+        }
+        .stylin_form1 section section label{
+            float:left;
+            clear:none;
+            width:15em;
+            margin:.15em 0 0 .6em;
+            font-weight:normal;        /* 重设继承的值 */
+            font-size:.7em;
+            line-height:1.2;
+        }
+        .stylin_form1 section select{
+            margin-left:.4em;
+            font-size:.85em;
+        }
+        .stylin_form1 section input[type='submit']{
+            width:auto;
+            margin:.4em .3em 0 0;
+            font-size:1em;
+            font-weight:800;
+            color:#fff;
+            background-color:#bbb7ae;
+            cursor:pointer;                 /*光标变成小手形状*/
+        }
+        .stylin_form1 > section:last-child{   /*居中提交按钮*/  
+            text-align:center;
+        }
+
+        /*lebal 标注放在左侧*/
+        .stylin_form1.labels_left{
+            width:22em;                         /*加宽表单*/
+        }
+        .stylin_form1.labels_left label,
+        .stylin_form1.labels_left h4{
+            float:left;                        /*标注浮动到左侧*/
+            width:8em;
+        }
+        .stylin_form1.labels_left p{
+            margin:0 0 0 9.35em;              /*缩进，确保位于控件正下方*/  
+            padding: .3em 0 0 0;
+            clear:both;                       /*确保说明不会跟着浮动的标注和控件走*/             
+        }
+        .stylin_form1.labels_left p.note{
+            margin:0 0 .2em 0;
+        }
+        .stylin_form1.labels_left section section{
+            width:10em;
+            margin-left:6.5em;
+            padding-top:0;
+        }
+        .stylin_form1.labels_left section section input{
+            width:1.25em;
+            margin-left:0;
+        }
+        .stylin_form1.labels_left section input,
+        .stylin_form1.labels_left section textarea,
+        .stylin_form1.labels_left section select{
+            float:left;
+            width:12em;
+        }
+        .stylin_form1.labels_left section select{
+            margin-left:.2em;
+        }
+        .stylin_form1.labels_left > section input[type=submit]{
+            float:none;
+        }
+
+        /*页眉搜索框*/
+        header{
+            font-family:helvetica,arial,sans-serif;
+            display: block;
+            overflow: hidden;
+            width:500px;
+            margin:30px;
+            border-radius:6px;
+            background-color:#ddd;
+        }
+        .stylin_form_search1{
+            float:right;
+            width:200px;
+            margin:5px;
+            padding:5px;
+        }
+        .stylin_form_search1 input{
+            float:right;
+            width:70px;
+            padding:2px 0 3px 5px;
+            outline:none;
+            font-size:.8em;
+            border-color:#eee #ccc #ccc #eee;
+            border-radius:10px;   
+            -webkit-transition: 2s width;             /*针对其它浏览器的厂商前缀*/ 
+        }
+        .stylin_form_search1 input:focus{              /*结合transition的css3过渡效果：input输入框变大*/
+            width:200px;
+        }
+        .stylin_form_search1 label {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <form class="stylin_form_search1" action="#" method="post">
+            <label for="search">search</label>
+            <input type="search" id="search" name="search" placeholder="search" />
+        </form>
+    </header>
+    <div id="wrapper">
+        <a href="#" id="toggleLeftLabels">Toggle Left Labels</a>&nbsp;
+        <a href="#" id="hiliteErrors">Demo error messages</a>
+        <form class="stylin_form1" action="process_form.php" method="post">
+            <h3>A Stylin' Form</h3>
+            <fieldset> <!-- 控件组容器1 -->
+                <legend><span>Part 1 &#8226; Basic Controls</span></legend> <!-- 控件组标题 -->
+                <section> <!-- 控件、标注、说明的包装，用于样式展示 -->
+                    <p class="note">* indicates required field</p>
+                    <label for="user_name">User Name<span> *</span></label>
+                    <input type="text" id="user_name" name="user_name" />
+                    <p>Please select a user name</p>
+                </section>
+                <!-- 密码区 -->
+                <section>	
+                    <label for="password">Password<span> *</span></label>
+                    <input type="password" id="password" name="password" maxlength="20" />
+                    <p>Password must be 8 or more characters</p>
+                </section>
+                <!-- 多行文本区 -->
+                <section>	
+                    <label for="description">Description</label>
+                    <textarea id="description" name="description" placeholder="Enter the description here."></textarea>
+                </section>
+                <!-- 日期展示 -->
+                <section>	
+                    <label for="description">Date</label>
+                    <input type="date" id="special_date" name="event_date" min="2012-09-05" />
+                </section>
+            </fieldset>
+            
+            <fieldset> <!-- 控件组容器2 -->
+                <legend><span>Part 2 &#8226; Multiple-Choice Controls</span></legend>
+                <!-- 复选框 -->
+                <section>
+                    <h4>Select Any Number</h4>
+                        <section>
+                            <input type="checkbox" id="check1" name="checkset" value="1" tabindex="4" />
+                            <label for="check1">Choice 1</label>
+                        </section>
+                        <section>
+                            <input type="checkbox" checked="checked" id="check2" name="checkset" value="2" />
+                            <label for="check2">Choice 2 is pre-checked</label>
+                        </section>
+                        <section>
+                            <input type="checkbox"  id="check3" name="checkset" value="3" />
+                            <label for="check3">Choice 3&mdash;add as many as you need!</label>
+                        </section>
+                    <p>You must choose one or more</p>
+                </section>
+                <!-- 单选框 -->
+                <section>
+                    <h4>Select Only One</h4>
+                    <section>
+                        <input checked="checked" id="radio1" name="radioset" type="radio" value="Choice_1" />
+                        <label for="radio1">Choice 1 is pre-selected and shows the text wraps nicely if it goes to multiple lines.</label>
+                    </section>
+                    <section>
+                        <input id="radio2" name="radioset" type="radio" value="Choice_2" />
+                        <label for="radio2">Choice 2</label>
+                    </section>
+                    <section>
+                        <input id="radio3" name="radioset" type="radio" value="Choice_3" />
+                        <label for="radio3">Choice 3</label>        
+                    </section>
+                </section>
+                <!-- 下拉框 -->
+                <section>
+                    <label for="select_choice">Select Your Choice</label>
+                    <select id="select_choice" name="select_choice">
+                        <option value="0">None</option>
+                        <option value="1">Choice 1</option>
+                        <option value="2">Choice 2</option>
+                        <option value="3">Choice 3</option>
+                        <option value="4">Choice 4</option>
+                    </select>
+                </section>
+            </fieldset>
+            
+            <!-- 提交按钮 -->
+            <section> <!-- input must be wrapped in a block level element to validate -->
+                <input type="submit" value="Submit This Form" />
+            </section>
+        </form>
+     </div>
+</body>
+</html>
