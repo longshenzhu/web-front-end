@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin:0; 
+            padding:0;
+        }
+        #wrapper {
+            overflow: hidden;
+            width: 960px;
+            margin: 0 auto;
+            border: 1px solid;
+            background-color: bisque;
+        }
+
+        .main {
+            /* margin: 10 10; */
+        }
+
+        nav {
+            box-sizing: border-box;
+            float: left;
+            width: 180px;
+            background-color:chocolate;
+            padding: 10px 10px;
+        }
+
+        nav li {
+            list-style-type: none;
+        }
+
+        .content {
+            box-sizing: border-box;
+            float: left;
+            width: 600px;
+            background-color:cyan;
+            padding: 10px 10px;
+        }
+
+        .aside {
+            box-sizing: border-box;
+            float: left;
+            width: 180px;
+            background-color:darkolivegreen;
+            padding: 10px 10px;
+        }
+        
+        .footer {
+            /* position: fixed; */
+            clear: both;
+            background-color: black;
+            bottom: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <header class="nav">
+            <h1>A Three-Column, Fluid Center Layout</h1>
+        </header>
+        <div class="main">
+            <nav>
+                <ul>
+                    <li><a href="#">Text for First Link</a></li>
+                    <li><a href="#">Text for Second Link</a></li>
+                    <li><a href="#">Text for Third Link</a></li>
+                </ul>
+            </nav>
+            <article class="content">
+                <h1>Three-Column Layout</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eleifend libero et risus aliquam a cursus felis gravida. 
+                        Etiam ultricies tristique tellus, vulputate euismod neque elementum ac. Integer at neque in magna lacinia bibendum sit 
+                        amet sit amet dolor. Nam consequat ullamcorper eros, sed bibendum metus faucibus sit amet. Sed convallis accumsan dui, 
+                        eu sodales odio mollis nec. Curabitur in nunc sed leo tempor luctus in a dolor. Sed sit amet facilisis sem. Donec 
+                        scelerisque consectetur velit, vitae bibendum mauris rutrum quis.</p>
+                    <h2>This is a Second-Level Heading</h2>
+                    <p>Phasellus pretium gravida interdum. Nam interdum posuere tempus. Ut commodo laoreet dolor, non hendrerit mi dictum vitae. 
+                        Nam nec egestas libero. Quisque sodales tortor ut tortor egestas eu adipiscing enim pellentesque. Cras condimentum tellus 
+                        in nisl tincidunt et ornare augue dignissim. Nam laoreet elit vitae lorem tincidunt adipiscing. Maecenas pharetra 
+                        mattis urna, eu adipi  scing diam pharetra ac. Vivamus vulputate odio at velit sagittis a rhoncus lacus lobortis. 
+                        Morbi porttitor scelerisque est in egestas.</p>
+            </article>
+            <aside class="aside">
+                <h3>This is the Sidebar</h3>
+                <p>Integer at neque in magna lacinia bibendum sit amet sit amet dolor. Nam consequat ullamcorper eros, sed bibendum metus 
+                    faucibus sit amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </aside>
+        </div>
+        <footer class="footer">
+            <p>This is the footer. Phasellus pretium gravida interdum. Nam interdum posuere tempus. Ut commodo laoreet dolor, non hendrerit mi dictum vitae. Nam nec egestas libero.</p>
+        </footer>
+    </div>
+</body>
+</html>
