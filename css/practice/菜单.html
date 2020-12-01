@@ -4,20 +4,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu-y {
+            margin: 50px;
+            width: 150px;
+        }
+        .menu-y ul {
+            border: 1px solid #f00;
+            border-radius: 3px ;
+            padding: 5px 10px 3px;
+        }
+        .menu-y li {
+            list-style-type: none;
+            
+        }
+        .menu-y li + li a {
+            border-top: 1px solid  #f00;
+        }
+        .menu-y a {
+            display: block;
+            padding: 3px 10px;
+            text-decoration: none;
+            font:20px Exo, helvetica, arial, sans-serif;
+            font-weight: 400;
+            color: #000;
+            background-color: #ffed53;
+        }
+        .menu-y a :hover {
+            color: #069;
+        }
+
+        .menu-x {
+            margin: 50px;
+        }
+        .menu-x ul {
+            /* border: 1px solid; */
+            overflow: hidden;
+        }
+        .menu-x li {
+            float: left;
+            list-style-type: none;
+        }
+        .menu-x a {
+            /*让链接填满li元素*/
+            display:block;
+            padding:0 16px;
+            /*去掉链接的下划线*/
+            text-decoration:none;
+            color:#999;
+        }
+        .menu-x li + li a {
+            border-left:1px solid #aaa;
+        }
+        .menu-x a:hover {
+            color:#555;
+        }
+
+    </style>
 </head>
 <body>
-    <nav id="menu-y">
+    <nav class="menu-y">
         <ul>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li><a href="中栏流动布局.html">连接1</a></li>
+            <li><a href="中栏流动布局.html">连接2</a></li>
+            <li><a href="中栏流动布局.html">连接3</a></li>
         </ul>
     </nav>
-    <nav id="menu-x">
+    <nav class="menu-x">
         <ul>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li><a href="多行多栏布局.html">连接1</a></li>
+            <li><a href="多行多栏布局.html">连接2</a></li>
+            <li><a href="多行多栏布局.html">连接3</a></li>
         </ul>
     </nav>
 </body>
