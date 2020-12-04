@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多级菜单</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 视觉样式 */
+        .multi_drop_menu {
+            font: 1em helvetica, arial, sans-serif;
+        }
+
+        .multi_drop_menu a {
+            display: block;
+            color: #555;
+            background-color: #eee;
+            padding: .2em 1em;
+
+            border-width: 3px;
+            border-color: transparent;
+        }
+
+        .multi_drop_menu a:hover {
+            color: #fff;
+            background-color: #aaa;
+        }
+
+        .multi_drop_menu a:active {
+            color: #fff;
+            background-color: #ccc;
+        }
+
+        /* 功能样式 */
+        .multi_drop_menu ul {
+            float: left;
+        }
+        .multi_drop_menu li {
+            list-style-type:none;
+            float:left;
+            /*为子菜单提供定位上下文*/
+            position:relative;
+        }
+
+        .multi_drop_menu li a {
+            text-decoration: none;
+            border-right-style: solid;
+            /* 背景只出现在内边距区域内 */
+            background-clip:padding-box;
+        }
+        .multi_drop_menu li:last-child a {
+            border-right-style:none;
+        }
+
+
+        /* 二级菜单视觉样式 */
+        /* 先隐藏二级菜单 */
+        .multi_drop_menu li ul {
+            width: 9em;
+        }
+        .multi_drop_menu li li a {
+            border-right-style: none;
+            border-top-style: solid;
+        }
+
+        /* 功能样式 */
+        /* 父元素悬停时显示子元素 */
+        .multi_drop_menu li ul {
+            display: none;
+            width: 9em;
+            position: absolute;
+            left: 0;
+            top: 100%;
+        }
+        .multi_drop_menu li:hover > ul {
+            display: block;
+        }
+        .multi_drop_menu li li {
+            float: none;
+        }
+        
+
+        /* 三级菜单 */
+        .multi_drop_menu li li ul {
+            /* 相对父菜单定位 */
+            position: absolute;
+            left: 100%;
+            top: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="multi_drop_menu">
+        <ul>
+            <li><a href="中栏流动布局.html">Power</a></li>
+            <li><a href="中栏流动布局.html">MoneyMoney</a></li>
+            <li>
+                <a href="中栏流动布局.html">Love</a>
+            </li>
+            <li><a href="中栏流动布局.html">Fame</a>
+                <ul>
+                    <li><a href="中栏流动布局.html">Sports Star</a></li>
+                    <li><a href="中栏流动布局.html">Move Star</a></li>
+                    <li><a href="中栏流动布局.html">Rock Star</a>
+                        <ul>
+                            <li><a href="#">Bruce Springsteen</a></li>
+                            <li><a href="#">Bono</a></li>
+                            <li><a href="#">Mick Jagger</a></li>
+                            <li><a href="#">Bob Dylan</a></li>
+                        </ul>                        
+                    </li>
+                    <li><a href="中栏流动布局.html">Web Designer</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</body>
+</html>
