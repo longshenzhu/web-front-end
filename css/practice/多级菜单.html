@@ -25,7 +25,12 @@
             border-color: transparent;
         }
 
-        .multi_drop_menu a:hover {
+        /* .multi_drop_menu a:hover {
+            color: #fff;
+            background-color: #aaa;
+        } */
+        /* :hover事件会沿着元素的结构层次“向上冒泡” */
+        .multi_drop_menu li:hover> a {
             color: #fff;
             background-color: #aaa;
         }
@@ -91,11 +96,31 @@
             left: 100%;
             top: 0;
         }
-
+        /* 添加垂直菜单 */
+        /*顶级垂直菜单宽度*/
+        .multi_drop_menu.vertical {width:8em;}
+        .multi_drop_menu.vertical li a {
+            border-right-style:none;
+            border-top-style:solid;
+        }
+        .multi_drop_menu.vertical li li a {
+            border-left-style:solid;
+        }
+        .multi_drop_menu.vertical ul,
+        .multi_drop_menu.vertical li {
+            /*让顶级菜单垂直显示*/
+            float:none;
+        }
+        .multi_drop_menu.vertical li ul {
+            /*子菜单左边与上一级菜单右边对齐*/
+            left:100%;
+            /*子菜单顶边与上一级菜单项顶边对齐*/
+            top:0;
+        }
     </style>
 </head>
 <body>
-    <nav class="multi_drop_menu">
+    <nav class="multi_drop_menu vertical">
         <ul>
             <li><a href="中栏流动布局.html">Power</a></li>
             <li><a href="中栏流动布局.html">MoneyMoney</a></li>
