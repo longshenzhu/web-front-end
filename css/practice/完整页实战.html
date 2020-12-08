@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {margin:0; padding:0;}
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #efefef;
+            margin: 0;
+        }
+
+        #wrapper {
+            width: 980px;
+            margin: 0 auto 20px;
+        }
+        header {
+            position: relative;
+            height: 70px;
+            margin:10px 0;
+            background-color: #fff;
+            border-radius: 20px 0px 20px 0px;
+            box-shadow: 0 12px 8px -9px #555;
+            padding: 1px;
+        }
+        header section#title {
+            position: absolute;
+            width: 300px;   /* 宽到不让文本折行 */
+            height: 65px;
+            left: 0px;
+            top: 0;
+        }
+        header h1 {
+            padding: 9px 12px 0;
+            font-family: 'Lato', Helvetica, sans-serif;
+            font-weight: 900;
+            font-size: 2.2em;
+            line-height: 1;
+            letter-spacing: -.025em;
+            color: #4eb8ea;
+        }
+        header h2 {
+            padding:0px 12px;
+            font-family:"Source Sans Pro", helvetica, sans-serif;
+            font-weight:400; /*设定下载字体的粗细*/
+            font-size:.9em; line-height:1;
+            letter-spacing:-.025em;
+            color:#333;
+        }
+
+        /*页眉搜索框*/
+        form.search{
+            position: absolute;
+            width:150px;
+            top:23px;right:20px;            /* 相对于页眉右上角定位 */
+        }
+        .search input {
+            float: right;
+            width: 70px;
+            padding: 2px 0 3px 5px;
+            border-radius: 10px 0px 10px 0px;
+            font-family: "Source Sans Pro", Helvetica, sans-serif;
+            font-weight: 400; font-size: 1em;
+            color: #888;
+            outline: none; /* 去掉默认的轮廓线 */
+            -webkit-transition: 2s width;
+        }
+        .search input:focus {
+            width: 140px;
+        }
+        .search label {
+            display: none;
+        }
+        form.search input {
+            background-color: #fff;
+        }
+        form.search input::-webkit-input-placeholder {
+            color: rgb(119, 27, 27);
+        }
+
+        nav.menu {
+            margin: 19px auto;
+            padding: 0;
+            text-align: center;
+            font-size: .8em;
+        }
+        nav.menu > ul {
+            display: inline-block;
+        }
+        nav.menu li {
+            float: left;
+            list-style-type: none;
+            position: relative;
+        }
+        nav.menu li a {
+            display: block;
+            padding:.25em .8em;
+            font-family:"Source Sans Pro", helvetica, sans-serif;
+            font-style: normal;
+            font-weight:600;
+            font-size:1.2em;
+            text-align:left;
+            color:#fff;
+            text-decoration: none;
+            -webkit-font-smoothing: antialiased;
+        }
+        nav.menu li.choice1 a {background:#f58c21;}
+        nav.menu li.choice2 a {background:#4eb8ea;}
+        nav.menu li.choice3 a {background:#d6e636;}
+        nav.menu li.choice4 a {background:#ee4c98;}
+        nav.menu li.choice5 a {background:#f58c21;}
+        nav.menu li:hover > a {
+        color:#555;
+        border-color:#fff;
+        border:0;
+        }
+        nav.menu li:last-child a {border-bottom-right-radius:10px;}
+        nav.menu li:first-child a {border-top-left-radius:10px;}
+
+        /* 下拉菜单 */
+        nav.menu li ul {
+            opacity:0; visibility:hidden; /* 隐藏下拉菜单*/
+            position:absolute; /*相对于父菜单定位*/
+            width:12em; /*下拉菜单宽度*/
+            left:0; /*左边与父菜单项左边对齐*/
+            top:100%; /*顶边与父菜单项底边对齐*/
+            -webkit-transition: 1s all; /*设定过渡效果*/
+            -moz-transition: 1s all;
+            transition: 1s all;
+        }
+        nav.menu li:hover > ul {
+            opacity:1; visibility:visible; /*两个属性都会产生过渡动画*/
+        }
+        nav.menu li li {
+            float:none; /*去掉继承的浮动，让菜单项上下堆叠*/
+        }
+        nav.menu li li:first-child a {border-radius:0;}
+        nav.menu li li:last-child a {border-bottom-left-radius:10px;}
+        .no-csstransitions nav.menu li ul { /*针对不支持过渡的浏览器*/
+            visibility:visible; /*覆盖过渡声明*/
+            opacity:1; /*覆盖过渡声明*/
+            display:none; /*如果不支持过渡，就直接隐藏菜单*/
+        }
+        .no-csstransitions nav.menu li:hover > ul {
+            display:block; /*在父菜单项悬停时显示菜单*/
+        }
+
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <header>
+            <section id="title">
+                <h1>Stylin&#8217; with CSS</h1>
+                <h2>The Blog and Books of Chartes Wyke-Smith</h2>
+            </section>
+            <nav class="menu">
+                <ul>
+                    <li class="choice1"><a href="#">Articles</a></li>
+                    <li class="choice2"><a href="#">Books</a>
+                        <ul><!-- drop down menu items -->
+                            <li><a href="#">Stylin&#8217; with CSS</a></li>
+                            <li><a href="#">Scriptin&#8217; with Ajax</a></li>
+                            <li><a href="#">Codin&#8217; for the Web</a></li>
+                            <li><a href="#">Visual Stylin' with CSS3</a></li>
+                        </ul>
+                    </li>
+                    <li class="choice3" ><a href="#">Resources</a>
+                        <ul><!-- drop down menu items -->
+                            <li><a href="#">Resource 1</a></li>
+                            <li><a href="#">Resource 2</a></li>
+                            <li><a href="#">Resource 3</a></li>
+                        </ul>
+                    </li>
+                    <li class="choice4"><a href="#">Bookshelf</a></li>
+                    <li class="choice5"><a href="#">Contact Me</a></li>
+                </ul>
+            </nav>
+            <form class="search">
+                <label for="user_name"></label>
+                <input type="text" id="user_name" placeholder="search" />
+            </form>
+        </header>
+        <section id="feature_area">
+            <article id="blog_leadoff">
+                <h4>September 7, 2012</h4>
+                <a href="#"><h3>Managing CSS Classes with jQuery</h3></a>
+                <img src="img/charles_wyke-smith.jpg" alt="Charles Wyke_Smith photo" />
+                <p>Sintus at neque in magna lacinia bibendum sit amet sit amet dolor. Phasellus pretium gravida interdum.
+                     Nam interdum posuere tempus. Ut commodo laoreet dolor, non hendrerit mi dictum vitae. Nam nec egestas libero. 
+                     Quisque sodales tortor ut tortor egestas eu adipiscing enim pellentesque. 
+                     Cras condimentum tellus in nisl sodales tortor ut tortor egestas eu adipiscing enimtincidunt et 
+                     ornare augue dignissim. Nam laoreet elit vitae lorem tincidunt adipiscing. 
+                     Maecenas pharetra mattis sodales tortor ut tortor egestas eu adipiscing enim urna, eu adipi  
+                     scing diam pharetra ac.</p>
+            </article>
+            <aside>
+                <form class="signin">
+                    <fieldset>
+                        <legend><span>Sign In for Code and Updates</span></legend> <!-- the text label for a fieldset -->
+                        <section>
+                            <label for="email">Email</label>
+                            <input type="text" id="email" />
+                        </section>
+                        <section>
+                            <label for="password">Password</label>
+                            <input type="text" id="password" />
+                        </section>
+                        <section>
+                            <input type="submit" value="Sign In" />
+                            <p class="signup">Not signed up? <a href="#">Register now!</a></p>
+                        </section>
+                    </fieldset>
+                </form>
+                <nav>
+                    <h3>Recent Articles</h3>
+                    <ul>
+                        <li><a href="#">Z-index&mdash;Layers of Confusion</a></li>
+                        <li><a href="#">Box-Image Techniques</a></li>
+                        <li><a href="#">Shadow FX with CSS3</a></li>
+                    </ul>
+                </nav>
+            </aside>
+        </section>
+        <section id="book_area">
+            <article class="left">
+                <div class="inner">
+                    <h3>HTML5 + CSS3</h3>
+                    <img src="img/stylin_cover.png" alt="Stylin' with CSS cover" />
+                    <aside>                        
+                        <ol>
+                            <li><a href="#">Download the Code</a></li>
+                            <li><a href="#">Table of Contents</a></li>
+                            <li><a href="#">Buy this Book</a></li> 
+                        </ol>
+                    </aside>
+                </div>
+            </article>
+            <article class="left">
+                <div class="inner">
+                    <h3>JavaScript</h3>
+                    <img src="img/scriptin_cover.png" alt="Scriptin' with Ajax cover" />
+                    <aside>
+                        <ol>
+                            <li><a href="#">Download the Code</a></li>
+                            <li><a href="#">Table of Contents</a></li>
+                            <li><a href="#">Buy this Book</a></li>
+                        </ol>
+                    </aside>
+                </div>
+            </article>
+            <article class="right">
+                <div class="inner">
+                    <h3>PHP + SQL</h3>
+                    <span><img src="img/codin_cover.png" alt="Codin' for the Web cover" /></span>
+                    <aside>                        
+                        <ol>
+                            <li><a href="#">Download the Code</a></li>
+                            <li><a href="#">Table of Contents</a></li>
+                            <li><a href="#">Buy this Book</a></li>
+                        </ol>
+                    </aside>
+                </div>
+            </article>
+            <article class="right">
+                <div class="inner">
+                <h3>Presentation</h3>
+                <img src="img/visual_stylin_cover.png" alt="Visual Stylin' cover" />
+                    <aside>                        
+                        <ol>
+                            <li><a href="#">Download the Code</a></li>
+                            <li><a href="#">Table of Contents</a></li>
+                            <li><a href="#">Buy this Book</a></li> 
+                        </ol>
+                    </aside>
+                </div>
+            </article>
+        </section>
+        <footer>
+            <p>A CSS template from 
+                <a href="http://www.stylinwithcss.com">
+                    <em>Stylin'with CSS, Third Edition</em>
+                </a> 
+                by Charles Wyke-Smith
+            </p>
+            <nav>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Contact Charles</a></li>
+                </ul>
+            </nav>
+        </footer>
+    </div>
+</body>
+</html>

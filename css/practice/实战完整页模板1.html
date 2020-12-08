@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #efefef;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <header>
+            <section id="title">
+                <h1>Stylin&#8217; with CSS</h1>
+                <h2>The Blog and Books of Chartes Wyke-Smith</h2>
+            </section>
+            <nav class="menu">
+                <ul>
+                    <li class="choice1"><a href="#">Articles</a></li>
+                    <li class="choice2"><a href="#">Books</a>
+                        <ul><!-- drop down menu items -->
+                            <li><a href="#">Stylin&#8217; with CSS</a></li>
+                            <li><a href="#">Scriptin&#8217; with Ajax</a></li>
+                            <li><a href="#">Codin&#8217; for the Web</a></li>
+                            <li><a href="#">Visual Stylin' with CSS3</a></li>
+                        </ul>
+                    </li>
+                    <li class="choice3" ><a href="#">Resources</a>
+                        <ul><!-- drop down menu items -->
+                            <li><a href="#">Resource 1</a></li>
+                            <li><a href="#">Resource 2</a></li>
+                            <li><a href="#">Resource 3</a></li>
+                        </ul>
+                    </li>
+                    <li class="choice4"><a href="#">Bookshelf</a></li>
+                    <li class="choice5"><a href="#">Contact Me</a></li>
+                </ul>
+            </nav>
+            <form class="search">
+                <label for="user_name"></label>
+                <input type="text" id="user_name" placeholder="search" />
+            </form>
+        </header>
+        <section id="feature_area">
+            <article id="blog_leadoff">
+                <h4>September 7, 2012</h4>
+                <a href="#"><h3>Managing CSS Classes with jQuery</h3></a>
+                <img src="img/charles_wyke-smith.jpg" alt="Charles Wyke_Smith photo" />
+                <p>Sintus at neque in magna lacinia bibendum sit amet sit amet dolor. Phasellus pretium gravida interdum.
+                     Nam interdum posuere tempus. Ut commodo laoreet dolor, non hendrerit mi dictum vitae. Nam nec egestas libero. 
+                     Quisque sodales tortor ut tortor egestas eu adipiscing enim pellentesque. 
+                     Cras condimentum tellus in nisl sodales tortor ut tortor egestas eu adipiscing enimtincidunt et 
+                     ornare augue dignissim. Nam laoreet elit vitae lorem tincidunt adipiscing. 
+                     Maecenas pharetra mattis sodales tortor ut tortor egestas eu adipiscing enim urna, eu adipi  
+                     scing diam pharetra ac.</p>
+            </article>
+            <aside>
+                <form class="signin">
+                    <fieldset>
+                        <legend><span>Sign In for Code and Updates</span></legend> <!-- the text label for a fieldset -->
+                        <section>
+                            <label for="email">Email</label>
+                            <input type="text" id="email" />
+                        </section>
+                        <section>
+                            <label for="password">Password</label>
+                            <input type="text" id="password" />
+                        </section>
+                        <section>
+                            <input type="submit" value="Sign In" />
+                            <p class="signup">Not signed up? <a href="#">Register now!</a></p>
+                        </section>
+                    </fieldset>
+                </form>
+                <nav>
+                    <h3>Recent Articles</h3>
+                    <ul>
+                        <li><a href="#">Z-index&mdash;Layers of Confusion</a></li>
+                        <li><a href="#">Box-Image Techniques</a></li>
+                        <li><a href="#">Shadow FX with CSS3</a></li>
+                    </ul>
+                </nav>
+            </aside>
+        </section>
+        <section id="book_area">
+            <article class="left">
+                <div class="inner">
+                    <h3>HTML5 + CSS3</h3>
+                    <img src="img/stylin_cover.png" alt="Stylin' with CSS cover" />
+                    <aside>                        
+                        <ol>
+                            <li><a href="#">Download the Code</a></li>
+                            <li><a href="#">Table of Contents</a></li>
+                            <li><a href="#">Buy this Book</a></li> 
+                        </ol>
+                    </aside>
+                </div>
+            </article>
+            <article class="left">
+                <div class="inner">
+                    <h3>JavaScript</h3>
+                    <img src="img/scriptin_cover.png" alt="Scriptin' with Ajax cover" />
+                    <aside>
+                        <ol>
+                            <li><a href="#">Download the Code</a></li>
+                            <li><a href="#">Table of Contents</a></li>
+                            <li><a href="#">Buy this Book</a></li>
+                        </ol>
+                    </aside>
+                </div>
+            </article>
+            <article class="right">
+                <div class="inner">
+                    <h3>PHP + SQL</h3>
+                    <span><img src="img/codin_cover.png" alt="Codin' for the Web cover" /></span>
+                    <aside>                        
+                        <ol>
+                            <li><a href="#">Download the Code</a></li>
+                            <li><a href="#">Table of Contents</a></li>
+                            <li><a href="#">Buy this Book</a></li>
+                        </ol>
+                    </aside>
+                </div>
+            </article>
+            <article class="right">
+                <div class="inner">
+                <h3>Presentation</h3>
+                <img src="img/visual_stylin_cover.png" alt="Visual Stylin' cover" />
+                    <aside>                        
+                        <ol>
+                            <li><a href="#">Download the Code</a></li>
+                            <li><a href="#">Table of Contents</a></li>
+                            <li><a href="#">Buy this Book</a></li> 
+                        </ol>
+                    </aside>
+                </div>
+            </article>
+        </section>
+        <footer>
+            <p>A CSS template from 
+                <a href="http://www.stylinwithcss.com">
+                    <em>Stylin'with CSS, Third Edition</em>
+                </a> 
+                by Charles Wyke-Smith
+            </p>
+            <nav>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Contact Charles</a></li>
+                </ul>
+            </nav>
+        </footer>
+    </div>
+</body>
+</html>
