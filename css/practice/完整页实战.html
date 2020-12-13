@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400italic,700italic,600italic,600,400,700|Lato:700italic,400,400italic,700,900italic,900' rel='stylesheet' type='text/css'>
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         * {margin:0; padding:0;}
         body {
@@ -23,29 +25,31 @@
             background-color: #fff;
             border-radius: 20px 0px 20px 0px;
             box-shadow: 0 12px 8px -9px #555;
-            padding: 1px;
+            padding-top: 1px;
         }
         header section#title {
             position: absolute;
-            width: 300px;   /* 宽到不让文本折行 */
+            width: 300px;                 /* 宽到不让文本折行 */
             height: 65px;
             left: 0px;
-            top: 0;
+            top: 0px;
         }
         header h1 {
-            padding: 9px 12px 0;
-            font-family: 'Lato', Helvetica, sans-serif;
+            padding:9px 12px 0;
+            font-family: Lato, Helvetica, sans-serif;
+            font-style: normal;
             font-weight: 900;
             font-size: 2.2em;
             line-height: 1;
             letter-spacing: -.025em;
-            color: #4eb8ea;
+            color:#4eb8ea;
         }
         header h2 {
             padding:0px 12px;
-            font-family:"Source Sans Pro", helvetica, sans-serif;
-            font-weight:400; /*设定下载字体的粗细*/
-            font-size:.9em; line-height:1;
+            font-family:"Source Sans Pro", helvetica, sans-serif;
+            font-weight:400;              
+            font-size:.9em; 
+            line-height:1;
             letter-spacing:-.025em;
             color:#333;
         }
@@ -64,7 +68,7 @@
             font-family: "Source Sans Pro", Helvetica, sans-serif;
             font-weight: 400; font-size: 1em;
             color: #888;
-            outline: none; /* 去掉默认的轮廓线 */
+            outline: none;                  /* 去掉默认的轮廓线  */
             -webkit-transition: 2s width;
         }
         .search input:focus {
@@ -112,9 +116,9 @@
         nav.menu li.choice4 a {background:#ee4c98;}
         nav.menu li.choice5 a {background:#f58c21;}
         nav.menu li:hover > a {
-        color:#555;
-        border-color:#fff;
-        border:0;
+            color:#555;
+            border-color:#fff;
+            border:0;
         }
         nav.menu li:last-child a {border-bottom-right-radius:10px;}
         nav.menu li:first-child a {border-top-left-radius:10px;}
@@ -145,6 +149,346 @@
         }
         .no-csstransitions nav.menu li:hover > ul {
             display:block; /*在父菜单项悬停时显示菜单*/
+        }
+
+        #feature_area {
+            overflow: hidden;
+            margin: 16px 0 0;
+            padding: 0 0 10px;
+        }
+        #feature_area article {
+            float: left;
+            width: 66%;
+        }
+        #feature_area aside {
+            float: right;
+            width: 34%;
+        }
+
+        #feature_area article .inner {
+            padding:12px;
+            background-color: #fff;
+            border-radius: 20px 0;
+            box-shadow: 0 12px 8px -9px #555;
+        }
+        #feature_area article a {
+            text-decoration: none;
+        }
+        #feature_area article img{
+            float: left;
+            padding:0 10px 10px 0;
+        }
+        #feature_area article h4 {
+            font-family:"Source Sans Pro", Helvetica, sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 1em;
+            color:#f58c21;
+            letter-spacing:-.025em;
+        }
+        #feature_area article h3{
+            font-family:Lato, Helvetica, sans-serif;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 1.75em;
+            color:#555;
+            margin:0px 0px 12px 0px;
+            letter-spacing:-.05em;
+        }
+        #feature_area article#blog_leadoff p {
+            font-family:"Source Sans Pro", helvetica, sans-serif;
+            font-style: normal;
+            font-weight:400;
+            font-size:1.1em;
+            line-height:1.5em;
+            color:#616161;
+            margin:0 0px;
+            text-align:justify;
+        }
+        #feature_area article#blog_leadoff p::first-letter {
+            font-family:Lato, helvetica, sans-serif; 
+            font-style: normal;
+            font-weight:700;
+            font-size:4.5em;  
+            float:left;  
+            margin:.05em .05em 0 0;  
+            line-height:0.6;
+            text-shadow:1px 3px 3px #ccc;            /* 文本阴影 */
+        }
+        #feature_area article#blog_leadoff p::first-line {
+            font-variant: small-caps;                   /* 把段落设置为小型大写字母字体： */
+            font-size: 1.2em;
+        }
+        
+        /*右侧表单*/
+        form.signin {
+            width: 19em;
+            float: right;
+            background-color: #fff;
+            border-radius: 10px 0 10px 0;
+            box-shadow: 0 12px 8px -9px #555;
+        }
+        .signin fieldset {
+            border:0;                            /* 去掉默认边框 */
+            margin: 10px 14px;
+        }
+        .signin legend span {
+            font-family:Lato, helvetica, sans-serif;
+            font-weight:700; font-size:1.3em; line-height:1.1em;
+            color:#4eb8ea;
+            letter-spacing:-.05em;
+        }
+        .signin section {
+            overflow:hidden; /*包围控件和标注*/
+            padding:.25em 0; /*表单元素的间距*/
+        }
+        .signin section label {
+            font-family:"Source Sans Pro", helvetica, sans-serif;
+            font-weight:400;
+            float:left;
+            width:5em; /*标注栏的宽度*/
+            margin:.5em .3em 0 0; /*外边距保持文本与控件的间距*/
+            line-height:1.1;
+            color:#555;
+        }
+        .signin section input {
+            float:right;
+            width:10.5em; /*控件栏的宽度*/
+            margin:.2em 0 0 .5em;
+            padding:3px 10px 2px; /*输入文本与控件的间距*/
+            color:#555;
+            font-size:.8em;
+            outline:none; /*去掉默认的轮廓线*/
+            border-radius:10px 0 10px 0;
+        }
+        input:-webkit-autofill { color:#fff !important; } /*去掉WebKit默认的黄色背景*/
+        .signin section input[type=submit] {
+            float:right; /*将按钮与控件右边对齐*/
+            width:auto; /*重设按钮宽度*/
+            margin:0 2px 3px 0;
+            padding:0px 8px 3px;
+            font-size:1em;
+            font-weight:800;
+            color:#fff;
+            border:none;
+            background-color:#d6e636;
+            box-shadow:1px 1px 2px #888;
+        }
+        .signin section p{ /*内容为“not signed up?”*/
+            float:right;
+            clear:both;
+            margin:.2em 0 0;
+            text-align:right;
+            font-size:.8em;
+            line-height:1em;
+            color:#555;
+        }
+        .signin section p a { color:#333; }/*到注册表单的链接*/
+        .signin section p a:hover {
+            color:#777;
+            text-decoration:none;
+        }
+        .signin section p.direction.error { /*错误消息*/
+            display:block;
+            color:#f00; /*添加error类后，把说明文字变成红色*/
+        }
+        .signin section p.direction { /*隐藏错误消息*/
+            display:none; 
+        }
+
+        #feature_area nav {
+            width: 19em;
+            float: right;
+            margin: 15px 0 0;
+            padding:.6em 0em .75em; /*链接上下的间距*/ 
+            background-color: #fff;
+            border-radius: 10px 0 10px 0;
+            box-shadow: 0 12px 8px -9px #555;
+        }
+        #feature_area nav h3 {
+            padding: 0 14px 0;
+            font-family:Lato, helvetica, sans-serif;
+            font-weight:700;
+            font-size:1.3em;
+            color: #aaa;
+            letter-spacing:-.05em;
+            text-align: left;
+        }
+
+        #feature_area nav ul {
+            margin: 0em 0 0 20px;
+        }
+        #feature_area nav li {
+            list-style-type: none;
+            padding: .7em 0 0 2em;
+            position:relative; /*提供项目符号定位上下文*/
+        }
+        #feature_area nav li::before {
+            content: "";
+            position: absolute;
+            height: 10px;
+            width: 10px;
+            left: 12px;
+            top: 12px;
+            border-radius: 5px 0 5px 0;
+            background-color:#d6e636;
+            box-shadow:1px 1px 2px #888;
+        }
+        #feature_area nav li a {
+            display: block;
+            text-decoration: none;
+            font-size: .9em;
+            color:#616161;
+        }
+        #feature_area nav li a:hover { color:#000; }
+
+        section#book_area {
+            clear: both;
+            border-radius: 20px 0 20px 0;
+            border:1px solid #f58c21; 
+            margin: 8px 0 16px;
+            overflow: hidden;
+        }
+        #book_area article {
+            float: left;
+            width: 25%;
+            padding: 10px 0;
+            background: none;
+        }
+        #book_area article .inner {
+            position: relative;
+            width: 140px;
+            margin: 0 auto;         /* 居中每本书 */
+        }
+        #book_area .inner h3 {
+            position: absolute;
+            width: 160px;
+            left: 112%;
+            bottom: 5px;
+            color:#ccc;
+            font-size:1.4em;
+            font-family:Lato, helvetica, sans-serif;
+            font-style:normal;
+            font-weight:900;
+            text-align:left;
+            transform:rotate(-90deg); /*旋转文字需要使用带厂商前缀的属性*/
+            transform-origin:left bottom; /*设定旋转中心点，需要带厂商前缀的属性*/
+        }
+        #book_area article.right:last-child h3 { left:85%; } /*较窄的封面需要不同的偏移量*/
+        #book_area article img { box-shadow: 0 12px 8px -9px #555; }/*封面阴影*/
+
+        #book_area article aside { /*弹出层共享样式开始*/
+            display: none;
+            position: absolute;
+            z-index: 2;
+            width: 200px;
+            background-color: #fff;
+            padding:  10px 2px 5px;
+            border: 2px solid #f58c21;
+            border-radius: 10px 0 10px 0;
+            box-shadow: 4px 4px 16px #555;
+            font-family:"Source Sans Pro", helvetica, sans-serif;
+            font-size:.8em;
+            line-height:1.5em;
+        }
+        #book_area article:hover aside { display:block; }/*鼠标悬停于封面时显示弹出层*/
+        #book_area article aside li {
+            padding:.25em 0 .75em 1em; /*列表项的垂直间距和左边距*/
+            list-style-type:none; /*去掉默认的项目符号*/
+            line-height:1.2em;
+        }
+        #book_area article aside li a { /*链接文本*/
+            text-decoration:none;
+            font-size:1.2em;
+            color:#616161;
+        }
+        #book_area article aside li a:hover { /*悬停时突显链接*/
+            color:#333;
+        } /*弹出层共享样式结束*/
+
+        #book_area article.left aside {/*左侧两本书*/
+            left:84%; top:14px;
+        }
+        #book_area article.right aside {
+            right: 84%; top: 14px;
+        }
+        #book_area article aside:after { /*橙色三角形*/
+            content:""; /*需要有内容，这里是一个空字符串*/
+            position:absolute; /*相对于弹出层定位*/
+            top:33px;
+            border:12px solid;
+            height:0px; width:0px; /*收缩边框创造三角形*/
+        }
+        #book_area article.left aside:after { /*左侧图书弹出层的三角形定位及颜色*/
+            right:100%;
+            border-color:transparent #f58c21 transparent transparent;
+        }
+        #book_area article.right aside:after { /*右侧图书弹出层的三角形定位及颜色*/
+            left:100%;
+            border-color:transparent transparent transparent #f58c21;
+        }
+        #book_area article aside:before { /*白色三角形*/
+            content:""; /*需要有内容，这里是一个空字符串*/
+            position:absolute; /*相对于弹出层定位*/
+            border:8px solid;
+            height:0px; width:0px; /*收缩边框创造三角形*/
+            z-index:100; /*保证白色三角形在最前面*/
+            top:37px;
+        }
+        #book_area article.left aside:before { /*左侧图书白色三角形的样式、位置和颜色*/
+            right:100%;
+            border-color:transparent white transparent transparent;
+        }
+        #book_area article.right aside:before { /*右侧图书白色三角形的样式、位置和颜色*/
+            left:100%;
+            border-color:transparent transparent transparent white;
+        }
+        footer {
+            padding:.5em 0 .35em 0; /*内容上下的间距*/
+            text-align:center; /*居中内容*/
+            border-radius:10px 0px 10px 0px;
+            background:#fff;
+            box-shadow:0 12px 8px -9px #555;
+        }
+        footer p { /*文本行的样式*/
+            font-family:'Source Sans Pro';
+            font-weight:400;
+            font-size:.85em;
+            letter-spacing:-.05em;
+            color:#555;
+        }
+        footer p a { /*文本行中的链接*/
+            font-family:'Source Sans Pro';
+            font-style:italic;
+            font-weight:700;
+            font-size:1em;
+            color:#4eb8ea;
+            text-decoration:none;
+        }
+        footer p a:hover {
+            color:#777;
+        }
+        footer ul { /*链接列表*/
+            display:inline-block; /*收缩包围列表*/
+            margin:4px 0 0;
+        }
+        footer li {
+            list-style-type:none; /*去掉默认的项目符号*/
+            float:left; /*让列表项水平排列*/
+            font-family:"Source Sans Pro";
+            font-weight:400;
+            font-size:.85em;
+        }
+        footer li + li a {
+            border-left:1px solid #ccc; /*链接分隔线*/
+        }
+        footer li a {
+            text-decoration:none; /*去掉链接默认的下划线*/
+            color:#aaa;
+            padding:0 5px; /*链接间距*/
+        }
+        footer a:hover {
+            color:#777;
         }
 
     </style>
@@ -185,19 +529,21 @@
         </header>
         <section id="feature_area">
             <article id="blog_leadoff">
-                <h4>September 7, 2012</h4>
-                <a href="#"><h3>Managing CSS Classes with jQuery</h3></a>
-                <img src="img/charles_wyke-smith.jpg" alt="Charles Wyke_Smith photo" />
-                <p>Sintus at neque in magna lacinia bibendum sit amet sit amet dolor. Phasellus pretium gravida interdum.
-                     Nam interdum posuere tempus. Ut commodo laoreet dolor, non hendrerit mi dictum vitae. Nam nec egestas libero. 
-                     Quisque sodales tortor ut tortor egestas eu adipiscing enim pellentesque. 
-                     Cras condimentum tellus in nisl sodales tortor ut tortor egestas eu adipiscing enimtincidunt et 
-                     ornare augue dignissim. Nam laoreet elit vitae lorem tincidunt adipiscing. 
-                     Maecenas pharetra mattis sodales tortor ut tortor egestas eu adipiscing enim urna, eu adipi  
-                     scing diam pharetra ac.</p>
+                <div class="inner">
+                    <h4>September 7, 2012</h4>
+                    <a href="#"><h3>Managing CSS Classes with jQuery</h3></a>
+                    <img src="img/charles_wyke-smith.jpg" alt="Charles Wyke_Smith photo" />
+                    <p>Sintus at neque in magna lacinia bibendum sit amet sit amet dolor. Phasellus pretium gravida interdum.
+                        Nam interdum posuere tempus. Ut commodo laoreet dolor, non hendrerit mi dictum vitae. Nam nec egestas libero. 
+                        Quisque sodales tortor ut tortor egestas eu adipiscing enim pellentesque. 
+                        Cras condimentum tellus in nisl sodales tortor ut tortor egestas eu adipiscing enimtincidunt et 
+                        ornare augue dignissim. Nam laoreet elit vitae lorem tincidunt adipiscing. 
+                        Maecenas pharetra mattis sodales tortor ut tortor egestas eu adipiscing enim urna, eu adipi  
+                        scing diam pharetra ac.</p>
+                </div>
             </article>
             <aside>
-                <form class="signin">
+                <form autocomplete="off" class="signin">
                     <fieldset>
                         <legend><span>Sign In for Code and Updates</span></legend> <!-- the text label for a fieldset -->
                         <section>
