@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h3>屏幕截图再截取</h3>
+        <img id="imgLocate" src="http://192.168.1.182:8032/tempimages/screenall.png">
+        <input id="imgCropper" type="button" value="截取图片" />
+        <img id="newImage" />
+    </div>
+    <script type="module">
+        let imgOriginWidth = 1920; let imgOriginHeight = 1080;
+        imgLocate.onload = function(){
+            console.log("imgDom.width",this.width, this.src);
+            let btn = document.getElementById("imgCropper");
+            let imgSrc = this.src;
+            let imgWidth = this.width;
+            let imgHeight = this.height;
+            btn.addEventListener("click", function(){
+                console.log("imgSrc",imgSrc);
+                cropper(imgSrc, imgWidth, imgHeight, 200,200, 0, 0).then(function (newImg){
+                    console.log("newImg:", newImg);
+                    newImage.src = newImg;
+                })
+            })
+        }
+        
+        function cropper(src, imgDomWidth, imgDomHeight, newWidth, newHeight, startX, startY, ratio) {
+            console.log(src,imgDomWidth, imgDomHeight, newWidth, newHeight, startX, startY, ratio);
+            return new Promise((resolve, reject) => {
+                var imgObject = new Image();
+                imgObject.crossOrigin = 'anonymous';
+                imgObject.src = src;
+                imgObject.onload = function (){
+                    let newImg = getImagePortion(imgObject, imgDomWidth, imgDomHeight, newWidth, newHeight, startX, startY, ratio);
+                    resolve(newImg);
+                }
+            })
+        }
+        function getImagePortion(imgObj, imgDomWidth, imgDomHeight, newWidth, newHeight, startX, startY, ratio) {
+            //为要减切的图片创建canvas
+            var tnCanvas = document.createElement('canvas');
+            var tnCanvasContext = tnCanvas.getContext('2d');
+            tnCanvas.width = newWidth;
+            tnCanvas.height = newHeight;
+
+            //压缩原图放到新的canvas
+            var bufferCanvas = document.createElement('canvas');
+            var bufferContext = bufferCanvas.getContext('2d');
+            bufferCanvas.width = imgDomWidth;
+            bufferCanvas.height = imgDomHeight;
+            //将图片放到画布上,(0,0)为放置的起点，(imgDomWidth, imgDomHeight)放置的宽高
+            bufferContext.drawImage(imgObj, 0, 0, imgDomWidth, imgDomHeight);
+
+            //图片剪切,(startX, startY, newWidth, newHeight)为剪切的图片起始位置和宽高，（0,0, newWidth, newHeight）为剪切图片的放置位置
+            tnCanvasContext.drawImage(bufferCanvas, startX, startY, newWidth, newHeight, 0, 0, newWidth, newHeight);
+            return tnCanvas.toDataURL();
+        }
+    </script>
+</body>
+</html>
