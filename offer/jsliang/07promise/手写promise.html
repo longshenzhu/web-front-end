@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>my promise</h1>
+    <script>
+        const PENDING = 'pending';
+        const RESOLVED = 'resolved';
+        const REJECTED = 'rejected';
+        function MyPromise(fn){
+            this.status = PENDING;
+            this.value = null;
+            this.error = null;
+
+            this.resolvedCallbacks = [];
+            this.rejectCallbacks = [];
+
+            this.resolve = res =>{
+                console.log("异步方法，执行完成，触发resolve")
+                if(this.status === PENDING){
+                    this.status = RESOLVED;
+                    this.value = res;
+                    this.resolvedCallbacks.map( cb => cb(res));
+                }
+            }
+            this.reject = err =>{
+                console.log("异步方法，执行出错，触发reject")
+                if(this.status === PENDING){
+                    this.status = REJECTED;
+                    this.error = err;
+                    this.rejectCallbacks.map( cb => cb(err));
+                }
+            }
+
+            try{
+                console.log("promise同步执行");
+                fn(this.resolve, this.reject);
+            } catch(e){
+                this.reject(e);
+            }
+        }
+        MyPromise.prototype.then = function(resolveCb, rejectCb){
+            console.log("注册回调方法开始");
+            if(this.status === PENDING){
+                console.log("将回调方法加入到对应的callback数组中")
+                this.resolvedCallbacks.push(resolveCb);
+                this.rejectCallbacks.push(rejectCb);
+            }
+
+            if(this.status === RESOLVED){
+                console.log("同步方法，执行resolve回调方法")
+                resolveCb(this.value);
+            }
+
+            if(this.status === REJECTED){
+                console.log("同步方法，执行reject回调方法")
+                rejectCb(this.error);
+            }
+            return this;
+        }
+
+        const promiseTest = new MyPromise((resolve,reject)=>{
+            setTimeout(()=>{
+                resolve("执行成功1000");
+            }, 1000);
+        });
+        promiseTest.then((res) => {
+            console.log("结果：", res);
+            return "第一个then的结果：" + res;
+        },(error)=>{
+            console.log("错误提示:", error);
+        }).then((res)=>{
+            console.log("怎么还有啊:", res);
+        })
+    </script>
+</body>
+</html>

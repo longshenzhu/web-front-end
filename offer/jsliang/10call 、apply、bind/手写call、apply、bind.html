@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>手写call、apply、bind</h3>
+    <script>
+        //call: 在指定上下文对象上执行函数，
+        //params：上下文对象Obj
+        //实现思路：
+        //1. 将函数设为对象的属性
+        //2. 执行该函数
+        //3. 删除该函数
+        //注意点：
+        //1. call的第一个参数可以为空
+        //2. 函数有返回值
+        Function.prototype.myCall = function(context){
+            if(typeof context === 'object'){
+                //null 、和object的情况
+                context = context || window;
+            }else{
+                if(typeof context === 'undefined'){
+                    context = window;
+                }else{
+                    // 基本包装类型 1 => Number{1}
+                    context = Object(context);
+                }
+            }
+            //es6中唯一属性值
+            //let fn = Symbol();
+            //context[fn] = this; 
+            //es3中唯一值
+            // var fn = 1;
+            // while ( context[fn] ) {
+            //     fn++;
+            // }
+            // context[fn] = this;   
+            context.fn = this;
+
+            //es6的方法获取函数参数并执行
+            const args = Array.from(arguments).slice(1);
+            let res = context.fn(args);
+            //es3的方法获取函数参数,执行后 args为 ["arguments[1]", "arguments[2]", "arguments[3]"]
+            // var args = [];
+            // for (let i = 1, len = arguments.length; i < len; i++) {
+            //     args.push('arguments[' + i + ']');
+            // }
+            // let res = eval('context.fn(' + args + ')');        //args会自动调用Array.toString()这个方法。
+
+            delete context.fn;
+            return res;
+        }
+
+        Function.prototype.myApply = function(context, arr){
+            context = context || window;
+            context.fn = this;
+
+            let res;
+            if(!arr){
+                context.fn();
+            }else{
+                var args = [];
+                for (let i = 0,len = arr.length; i < len; i++) {
+                    args.push('arr[' + i + ']');                 
+                }
+                res = eval('context.fn(' + args + ')');
+                // res = context.fn(arr);
+            }
+            delete context.fn;
+            return res;
+        }
+
+        //bind：为context产生新的函数。
+        //params：新函数的参数为 args、arguments
+        //难点：
+        //新产生的函数可以作为构造函数使用，new出新对象
+        Function.prototype.myBind = function(context){
+            if (typeof this !== "function") {
+                throw new Error("Function.prototype.bind - what is trying to be bound is not callable");
+            }
+            let self = this;
+            let args = Array.from(arguments).slice(1);
+
+            function fBound(){
+                return self.apply(this instanceof fBound? this : context, args.concat(Array.from(arguments)));
+            }
+            fBound.prototype = Object.create(self.prototype);
+            //fBound.prototype = this.prototype;    //这里的问题是两个引用指向同一个原型对象，fBound.prototype上的属性改变会影响this.prototype
+            return fBound;
+        }
+        //最low版,未考虑构造函数的情况
+        // Function.prototype.myBind = function(context){
+        //     let self = this;
+        //     let args = Array.from(arguments).slice(1);
+        //     return function(){
+        //         return self.apply(context, args.concat(Array.from(arguments)));
+        //     }
+        // }
+
+        //模拟Object.create()
+        // Object.create = function(o){
+        //     function f(){};
+        //     f.prototype = o;
+        //     return new f;
+        // }
+
+        var value = 2;
+        var foo = {
+            value: 1
+        };
+        function bar(name, age){
+            this.habit = 'shopping';
+            console.log(this.value);
+            console.log(name);
+            console.log(age);
+        }
+        bar.prototype.friend = 'kevin';
+        var bindFoo = bar.myBind(foo,'daisy');
+        // bindFoo(18);
+        var obj = new bindFoo('19');
+        console.log(obj.habit);
+        console.log(obj.friend);
+
+        // var obj1 = {
+        //     name: "jawil",
+        //     sayHello: function (age) {
+        //         console.log("hello, i am ", this.name + " " + age + " years old");
+        //     }
+        // };
+
+        // var obj2 = {
+        //     name: "lulin",
+        // };
+
+        // obj1.sayHello(24);
+        // obj1.sayHello.myCall(obj2, 24);
+    </script>
+</body>
+</html>

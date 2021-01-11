@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8">
+ <title>nick getBase64</title>
+</head>
+<body>
+<div><img id="test" src="" alt=""/></div>
+<input type="file" id="image"><br/>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+ var imgSrc = "https://img.alicdn.com/bao/uploaded/TB1qimQIpXXXXXbXFXXSutbFXXX.jpg";
+//  var imgSrc = "0.png";
+ function getBase64(img){//传入图片路径，返回base64
+    function getBase64Image(img,width,height) {//width、height调用时传入具体像素值，控制大小 ,不传则默认图像大小
+       var canvas = document.createElement("canvas");
+       canvas.width = width ? width : img.width;
+       canvas.height = height ? height : img.height;
+      
+       var ctx = canvas.getContext("2d");
+       ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+       var dataURL = canvas.toDataURL();
+       return dataURL;
+    }
+      
+    var image = new Image();
+    image.crossOrigin = '';
+    image.src = img;
+    var deferred=$.Deferred();
+    if(img){
+        image.onload =function (){
+           deferred.resolve(getBase64Image(image));//将base64传给done上传处理
+        }
+        return deferred.promise();//问题要让onload完成后再return sessionStorage['imgTest']
+    }
+  }
+  getBase64(imgSrc).then(function(base64){
+    console.log(base64);
+  },function(err){
+    console.log(err);
+  });
+
+// test();
+// function test(){
+//     var url = "0.png";//这是站内的一张图片资源，采用的相对路径
+//     convertImgToBase64(url, function(base64Img){
+//     //转化后的base64
+//     alert(base64Img);
+//     });             
+// }
+
+// //实现将项目的图片转化成base64
+// function convertImgToBase64(url, callback, outputFormat){
+//     let img = new Image();
+//     img.src = url;
+//     img.crossOrigin = 'Anonymous';
+//     img.onload = function(){
+//         let canvas = document.createElement('canvas');
+//         let ctx = canvas.getContext('2d');
+//     　　canvas.height = img.height;
+//     　　canvas.width = img.width;
+//     　　ctx.drawImage(img,0,0);
+//     　　var dataURL = canvas.toDataURL(outputFormat || 'image/png');
+//     　　callback.call(this, dataURL);
+//     　　canvas = null; 
+//     };
+// 　　
+// }
+
+// var reader = new FileReader();
+// var AllowImgFileSize = 2100000; //上传图片最大值(单位字节)（ 2 M = 2097152 B ）超过2M上传失败
+// var file = $("#image")[0].files[0];
+// var imgUrlBase64;
+// if (file) {
+//     //将文件以Data URL形式读入页面  
+//     imgUrlBase64 = reader.readAsDataURL(file);
+//     reader.onload = function (e) {
+//         //var ImgFileSize = reader.result.substring(reader.result.indexOf(",") + 1).length;//截取base64码部分（可选可不选，需要与后台沟通）
+//         if (AllowImgFileSize != 0 && AllowImgFileSize < reader.result.length) {
+//             alert( '上传失败，请上传不大于2M的图片！');
+//             return;
+//         }else{
+//             //执行上传操作
+//             alert(reader.result);
+//         }
+//     }
+// }
+</script>
+</body>
+</html>

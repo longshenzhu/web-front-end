@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>promise</h1>
+    <div id="container"></div>
+    <script>
+        const promise = new Promise((resolve, reject) => {
+            console.log("resolve:", resolve);
+            console.log("reject:", reject);
+            const number = Math.floor(Math.random() * 10);
+
+            if(number > 5){
+                resolve('大于 5');
+            }else {
+                reject('小于 5');
+            }
+        });
+
+        promise.then(res=>{
+            console.log('success:', res);
+        }).catch(err=>{
+            console.log('error:', err);
+        }).finally(()=>{
+            console.log('不管发生了啥，我都会调用');
+        });
+
+        function screenShot(){
+            return new Promise((resolve, reject) => {
+                console.log("调用了screenShot方法");
+                window.screen_shot = function(){
+                    resolve("图片的高度为：" + arguments[0]);
+                }
+            })
+        }
+        screenShot().then(data => {
+            let resolveData = data;
+            console.log(resolveData);
+        });
+
+        var imgSrc = "https://img.alicdn.com/bao/uploaded/TB1qimQIpXXXXXbXFXXSutbFXXX.jpg";
+        const container = document.getElementById("container");
+        const h1 = document.querySelector("h1").addEventListener("click", function(){
+            console.log("点击promise");
+            //读取外部图片，传入
+            let img = new Image();
+            
+            // img.crossOrigin = 'anonymous';            //chrome中 img对象 读取本地图片有跨域提示
+            console.log(new Date().getSeconds());
+            container.appendChild(img);
+            img.onload = function (){
+                console.log(new Date().getSeconds());
+                // let defer = new Promise((resolve, reject)=> {
+                //     resolve(getBase64Image(img));
+                // });
+                // defer.then(imgBase64 => {
+                //     window.screen_shot(imgBase64);
+                // })
+                let imgBase64 = getBase64Image(img);
+                window.screen_shot(imgBase64);
+            }
+            img.onerror = function (e){
+                console.log(e);
+            }
+            img.src = imgSrc;
+        })
+
+        function getBase64Image(img) {
+            img.crossOrigin = 'anonymous'; 
+            var canvas = document.createElement("canvas");
+            canvas.width = img.width;
+            canvas.height = img.height;
+            var ctx = canvas.getContext("2d");
+            ctx.drawImage(img, 0, 0, img.width, img.height);
+            var dataURL = canvas.toDataURL("image/png");
+            return dataURL; // return dataURL.replace("data:image/png;base64,", ""); 
+        } 
+    </script>
+</body>
+</html>

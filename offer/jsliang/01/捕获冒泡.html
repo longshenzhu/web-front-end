@@ -75,6 +75,18 @@
             modifyText('four');
             //   recursion();
         }, true);
+
+      //实现sleep方法
+      var sleep = time => {
+        return new Promise((resolve,reject)=>{
+          setTimeout(()=>{
+            resolve("data");
+          },time);
+        })
+      }
+      sleep(2000).then(data=>{
+        console.log(data);
+      })
     })()
   </script>
 </body>
