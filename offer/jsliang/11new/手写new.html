@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>手写个new试试</h3>
+    <script>
+        //首先new的作用是啥：
+        //以函数作为构造函数，创建了一个普通对象
+        //模拟new的思路
+        //1. 关键字用函数来代替：objFactory(ctor, args); 
+        //2. 创建一个kong对象obj;
+        //3. obj的__proto__属性指向和ctor原型prototype指向相同;
+        //4. 以obj为上下文，执行ctor函数，使用apply即可;
+        //5. 当ctor有对象类型返回值时，直接返回ctor的执行结果，否则返回对象obj。
+        function objFactory(){
+            let constructor = [].shift.call(arguments);
+            let obj = {};
+            obj.__proto__ = Object.create(constructor.prototype);
+            let result = constructor.apply(obj, arguments);
+            return typeof result === 'object' ? result : obj;
+        }
+
+        this.value = "jsliang";
+        function Person(name, age){
+            this.value = "zhazhaliang";
+            this.name = name;
+            this.age = age;
+        }
+        Person.prototype.sex = "man";
+        Person.prototype.sayHello = function(){
+            console.log(`hello!,this is ${this.name},I'm ${this.value}`);
+        }
+        var person = new Person("zhang", 18);
+        person.sayHello();
+
+        var myPerson = objFactory(Person, "bing", 30);
+        myPerson.sayHello();
+
+    </script>
+</body>
+</html>
