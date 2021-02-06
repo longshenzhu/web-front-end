@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h4>Object.create()都干了啥</h4>
+    <script>
+        //Object.create(obj); 以obj为原型，产生新的对象。
+        //测试Object.create()的功能。
+        var obj0 = Object.create(null);   console.log(obj0);                //{},无__proto__的纯净对象。
+        var obj1 = Object.create(Object.prototype); console.log(obj1);      //{__proto__: Object},等同于 var obj1 = {}; 或者 var obj1 = new Object();
+        obj0.property1 = "first_property";
+        var obj2 = Object.create(obj0);   console.log(obj2);                //{__proto__: }, 存在了__proto__,并且__proto__指向obj0。
+
+        function func(){
+            console.log("aaa");
+        }
+        func.a = 5;
+        var obj4 = Object.create(func); console.log(obj4.a);                //{__proto__: ƒ func()}, __proto__指向func, 可以调用函数func上的方法。
+
+        //总结：Object.create(obj);创建一个对象，对象的__proto__属性指向obj。
+        function object_create(proto){
+            // var obj = {};
+            // obj.__proto__ = proto;
+            // return obj;
+
+            function F(){};
+            F.prototype = proto;
+            return new F();
+        }
+        console.log(object_create({a: 3}));
+
+        //es5实现类继承三部曲
+        //1. Father.call(this); //在Child构造函数中执行，改变this指向，继承Father的属性。
+        //2. Child.prototype = Object.create(Father.prototype);    //Child的原型指向复制后的Father.prototype，保证相互之间不影响。
+        //3. Child.prototype.constructor = Child;                  //修改原型中的constructor指向自身。
+        const Father = function (name, like) {
+            this.name = name;
+            this.like = like;
+            this.money = 10000000;
+        };  
+        Father.prototype.company = function() {
+            console.log(`${this.name} 有 ${this.money} 元`);
+        }
+        const Children = function (name, like) {
+            Father.call(this);
+            this.name = name;
+            this.like = like;
+        }
+        Children.prototype = Object.create(Father.prototype);
+        Children.prototype.constructor = Children;
+        const jsliang = new Children('jsliang', '学习');
+        console.log(jsliang); // Children {name: "jsliang", like: "学习", money: 10000000}
+        jsliang.company(); // jsliang 有 10000000 元
+
+    </script>
+</body>
+</html>

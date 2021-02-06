@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h4>类型判断</h4>
+</body>
+<script>
+    //类型判断的4中方式：typeof, instantOf, Object.Constructor, Object.prototype.toString
+    //typeof: null和Object 都返回object，函数返回 function
+    //Object.prototype.toString： 返回 "[object " 和 class 和 "]"，  class是对象的内部属性, 可以判断详细的js对象类型
+    // 共14种：
+    // var number = 1;          // [object Number]
+    // var string = '123';      // [object String]
+    // var boolean = true;      // [object Boolean]
+    // var und = undefined;     // [object Undefined]
+    // var nul = null;          // [object Null]
+    // var obj = {a: 1}         // [object Object]
+    // var array = [1, 2, 3];   // [object Array]
+    // var date = new Date();   // [object Date]
+    // var error = new Error(); // [object Error]
+    // var reg = /a/g;          // [object RegExp]
+    // var func = function a(){}; // [object Function]
+    // console.log(Object.prototype.toString.call(Math)); // [object Math]
+    // console.log(Object.prototype.toString.call(JSON)); // [object JSON]
+    // function a() {
+    //     console.log(Object.prototype.toString.call(arguments)); // [object Arguments]
+    // }
+
+    // function checkType() {
+    //     for (var i = 0; i < arguments.length; i++) {
+    //         console.log(Object.prototype.toString.call(arguments[i]))
+    //     }
+    // }
+
+    // checkType(number, string, boolean, und, nul, obj, array, date, error, reg, func)
+
+</script>
+</html>

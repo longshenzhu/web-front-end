@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            width: 100%; height: 200px; line-height: 200px; text-align: center; color: #fff; background-color: #444; font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container"></div>
+    <script>
+        var count = 1;
+        var container = document.getElementById('container');
+
+        function getUserAction() {
+            container.innerHTML = count++;
+        };
+
+        // container.onmousemove = debounce(getUserAction, 1000, true);
+        container.onmousemove = throttle(getUserAction, 2000, { leading: false, trailing: true });
+
+        //防抖：间隔时间内多次调用，只执行最后一次调用
+        //注意点：1. this的指向  2. 函数的参数
+        function debounce(func, delay){
+            let time;
+            return function(){
+                let context = this;
+                let args = arguments;
+                // let args = Array.from(arguments);
+
+                clearTimeout(time);
+                time = setTimeout(function(){
+                    func.apply(context, args);
+                },delay);
+            }
+        }
+        //其他实现，es6实现
+        function debounce(fn, wait) {
+            let timeout;
+            return function () {
+                clearTimeout(timeout);
+                timeout = setTimeout(() => fn.apply(this, arguments), (wait || 1));
+            }
+        }
+        //扩展点：1. 立即执行。
+        //注意点：1. timeout的值会一次增加，直到异步设置为null。
+        //       2. immediate一直不会改变。
+        //       3. 返回值在立即执行是return，异步时为undefined。         
+        function debounce(func, wait, immediate) {
+            var timeout, result;
+
+            return function () {
+                var context = this;
+                var args = arguments;
+
+                // console.log("cleartimeout前", timeout);
+                if (timeout) clearTimeout(timeout);
+                // console.log("cleartimeout后", timeout);
+                // immediate的值保持不变
+                if (immediate) {
+                    // 如果已经执行过，不再执行
+                    var callNow = !timeout;
+                    console.log("callNow:", callNow);
+                    //timeout: undefined、1、2、3、4...null
+                    timeout = setTimeout(function(){
+                        timeout = null;
+                    }, wait)
+                    if (callNow) result = func.apply(context, args);
+                }
+                else {
+                    timeout = setTimeout(function(){
+                        func.apply(context, args)
+                    }, wait);
+                }
+                return result;
+            }
+        }
+        
+        //其他实现
+        function debounce(func, wait, immediate) {
+            var timeout;
+            return function() {
+                var context = this, args = arguments;
+                var later = function() {
+                    timeout = null;
+                    if (!immediate) func.apply(context, args);
+                };
+                var callNow = immediate && !timeout;
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+                if (callNow) func.apply(context, args);
+            };
+        };
+
+
+        //间隔的时间内多次调用，只执行一次，降低执行频率
+        //要点：同防抖
+        //扩展点：是否立即执行第一次调用、是否执行最后一次调用
+        //利用时间戳实现立即执行，立即执行一次，停止触发后不再执行
+        function throttle(func, delay){
+            var previous = 0;
+            return function(){
+                var context = this;
+                var args = arguments;
+
+                var now = +new Date();  //var now = new Date().getTime();
+                if(now - previous > delay){
+                    func.apply(context, args);
+                    previous = now;
+                }
+            }
+        }
+        //定时器实现，间隔时间后才第一次执行，停止触发后还会再执行一次
+        function throttle(func, delay){
+            var timeout;
+            return function(){
+                var context = this;
+                var args = arguments;
+
+                if(!timeout){
+                    timeout = setTimeout(() => {
+                        timeout = null;
+                        func.apply(context, args);
+                    }, delay);
+                }
+            }
+        }
+        //支持配置版本,options 作为第三个参数
+        //leading：false 表示禁用第一次执行
+        //trailing: false 表示禁用停止触发的回调
+        function throttle(func, wait, options) {
+            var timeout, context, args, result;
+            var previous = 0;
+            if (!options) options = {};
+
+            var later = function() {
+                previous = options.leading === false ? 0 : new Date().getTime();
+                timeout = null;
+                func.apply(context, args);
+                if (!timeout) context = args = null;
+            };
+
+            var throttled = function() {
+                var now = new Date().getTime();
+                if (!previous && options.leading === false) previous = now;
+                var remaining = wait - (now - previous);
+                context = this;
+                args = arguments;
+                if (remaining <= 0 || remaining > wait) {
+                    if (timeout) {
+                        clearTimeout(timeout);
+                        timeout = null;
+                    }
+                    previous = now;
+                    func.apply(context, args);
+                    if (!timeout) context = args = null;
+                } else if (!timeout && options.trailing !== false) {
+                    timeout = setTimeout(later, remaining);
+                }
+            };
+            throttled.cancel = function() {
+                clearTimeout(timeout);
+                previous = 0;
+                timeout = null;
+            }
+            return throttled;
+        }
+    </script>
+</body>
+</html>
