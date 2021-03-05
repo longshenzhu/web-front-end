@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Counter {
+            constructor(limit) {
+                this.limit = limit;
+            }
+            [Symbol.iterator]() {
+                let count = 1,
+                limit = this.limit;
+                return {
+                    next() {
+                        if (count <= limit) {
+                            return { done: false, value: count++ };
+                        } else {
+                            return { done: true };
+                        }
+                    },
+                    return() {
+                        console.log('Exiting early');
+                        return { done: true };
+                    }
+                };
+            }
+        }
+        let counter1 = new Counter(5);
+        for (let i of counter1) {
+            if (i > 2) {
+                break;
+            }
+            console.log(i);
+        }
+
+        function *generator(){
+            yield 'foo';         //碰到yield就暂停执行，保存函数执行上下文状态，
+            yield 'bar';         //生成器调用next()恢复执行，yield后的值作为返回值；
+            return "baz";        //return 终止执行，done变为true。
+        }
+        const g = generator();
+        console.log(g.next("第一个next值忽略"));   //{value: "foo", done: false}
+        console.log(g.next("传递给yield的值"));   //{value: "bar", done: false}
+        console.log(g.next());   //{value: "baz", done: true}
+        for (const x of g) {
+            console.log(x);
+        } 
+    </script>
+</body>
+</html>

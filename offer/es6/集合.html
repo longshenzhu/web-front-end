@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>集合</title>
+</head>
+<body>
+    <h2>Map/WeakMap</h2>
+    <script>
+        //Map 初始化
+        // 1、使用嵌套数组初始化映射
+        const m1 = new Map([
+            ["key1", "val1"],
+            ["key2", "val2"],
+            ["key3", "val3"]
+        ]);
+        console.log(m1.size); // 3
+        // 2、使用自定义迭代器初始化映射
+        const m2 = new Map({
+            [Symbol.iterator]: function*() {
+            yield ["key1", "val1"];
+            yield ["key2", "val2"];
+            yield ["key3", "val3"];
+            }
+        });
+        console.log(m2.size); // 3 
+
+        //WeakMap初始化
+        const key1 = {id: 1},
+            key2 = new String("key2");   // 原始值可以先包装成对象再用作键
+        // 使用嵌套数组初始化弱映射
+        const wm1 = new WeakMap([
+            [key1, "val1"],
+            [key2, "val2"],
+        ]);
+        console.log(wm1.get(key1)); // val1
+        console.log(wm1.get(key2)); // val2
+
+        const wm = new WeakMap();
+        class user {
+            constructor(id){
+                this.idProperty = Symbol('id');
+                this.setId(id);
+            }
+            setPrivate(property, value) {
+                const privateMembers = wm.get(this) || {};
+                privateMembers[property] = value;
+                wm.set(this, privateMembers);
+            }
+            getPrivate(property) {
+                return wm.get(this)[property];
+            }
+            setId(id) {
+                this.setPrivate(this.idProperty, id);
+            }
+            getId() {
+                return this.getPrivate(this.idProperty);
+            }
+        }
+        const user = new User(123);
+        console.log(user.getId()); // 123
+        user.setId(456);
+        console.log(user.getId()); // 456
+        // 并不是真正私有的
+        console.log(wm.get(user)[user.idProperty]); // 456 
+
+        //set 应用场景：
+        // 去重字符串：[...new Set(str)].join("")
+        console.log([...new Set("ssstrinng")].join(""));
+        // 去重数组：[...new Set(arr)]或Array.from(new Set(arr))
+        // 集合数组
+
+        // 声明：const a = new Set(arr1)、const b = new Set(arr2)
+        // 并集：new Set([...a, ...b])
+        // 交集：new Set([...a].filter(v => b.has(v)))
+        // 差集：new Set([...a].filter(v => !b.has(v)))
+
+
+        // 映射集合
+
+        // 声明：let set = new Set(arr)
+        // 映射：set = new Set([...set].map(v => v * 2))或set = new Set(Array.from(set, v => v * 2))
+
+
+    </script>
+</body>
+</html>
