@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h4>test</h4>
+    <script>
+        //手写new
+        function NewObj(fn, ...args){
+            var obj = {};
+            obj.__proto__ = Object.create(fn.prototype);
+            var result = fn.apply(obj, args);
+            return typeof result === "object"? result : obj;
+        }
+
+        //手写apply、call、bind
+        Function.prototype.myApply = function(context, arr){
+            if(typeof context === "object"){
+                context = context || window;
+            }else {
+                if(typeof context === "undefined"){
+                    context = window;
+                }
+                context = Object(context);
+            }
+            var fn = Symbol();
+            context[fn] = this;
+            var res;
+            if(!arr){
+                res = context[fn]();
+            }else{
+                res = context[fn](...arr);
+            }
+            delete context[fn];
+            return res;
+        }
+        Function.prototype.myCall = function(context, ...arr){
+            if(typeof context === "object"){
+                context = context || window;
+            }else{
+                if(typeof context === "undefined"){
+                    context = window;
+                }else{
+                    context = Object(context);
+                }
+            }
+            var fn = Symbol();
+            context[fn] = this;
+            var result = context[fn](...arr);
+            return result;
+        }
+        Function.prototype.myBind = function(context, ...args1){
+            var fn = this;
+            if(typeof fn !== "function"){
+                throw new Error("Function.prototype.bind - what is trying to be bound is not callable");
+            }
+            var newFunc = function(){
+                var args = arg1.concat(Array.from(arguments));
+                var res = fn.apply(context, args);
+                return res;
+            };
+            return newFunc;
+        }
+
+        var name = "555"
+        function test(){
+            console.log("sdfaf");
+            console.log(this.name);
+        }
+        test.myCall();
+    </script>
+</body>
+</html>

@@ -148,7 +148,17 @@
 
         Function.prototype.myApply2 = function(context, arr){
             //判断context，必须是对象或者能转为对象
-            context = Object(context) || window;
+            if(typeof context === 'object'){
+                //null 、和object的情况
+                context = context || window;
+            }else{
+                if(typeof context === 'undefined'){
+                    context = window;
+                }else{
+                    // 基本包装类型 1 => Number{1}
+                    context = Object(context);
+                }
+            } 
             const fn = Symbol();
             context[fn] = this;
             const res = context[fn](...arr);

@@ -87,11 +87,34 @@
         }
 
         //https://mp.weixin.qq.com/s/qdJ0Xd8zTgtetFdlJL3P1g
-        function Promise(){
+        function Promise(func){
             this.state = PENDING;       // Promise的状态
             this.result = null;         // 成功的 和 错误的结果
+            this.callbacks = [];
+
+            let onFulfilled = value => transition(this, FULFILLED, value);
+            let onRejected = value => transition(this, REJECTED, reason);
+
+            let ignore = false;
+            let resolve = value => {
+                if (ignore) return;
+                ignore = true;
+                resolvePromise(this, value, onFulfilled, onRejected);
+            }
+            let reject = reason => {
+                if (ignore) return;
+                ignore = true;
+                onRejected(reason);
+            }
+
+            try {
+                func(resolve, reject);
+            } catch (error) {
+                reject(error);
+            }
         }
 
+        //对promise进行状态转移
         const transition = (promise, state, result) => {
             if(promise.state !== PENDING) return;
             promise.state = state;
@@ -108,7 +131,7 @@
                 }
             })
         }
-
+        //在当前promise和下一个promise之间进行状态传递
         const handleCallback = (callback, state, result) => {
             let { onFulfilled, onRejected, resolve, reject } = callback;
             try {
@@ -121,7 +144,7 @@
                 reject(error);
             }
         }
-
+        //对特殊状态的result进行处理
         const resolvePromise = (promise, result, resolve, reject) => {
             if(result === promise){
                 let reason = new TypeError('Can not fufill promise with itself');
@@ -142,7 +165,7 @@
                     return reject(error);
                 }
             }
-
+            //
             resolve(result);
         }
     </script>
