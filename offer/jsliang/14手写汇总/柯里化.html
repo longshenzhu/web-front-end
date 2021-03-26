@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>柯里化</title>
+</head>
+<body>
+    <script>
+        // function curry(fun, ...args){
+        //     console.log(curry.length);
+        //     return function(){
+        //         args.push(...arguments);
+        //         return args.reduce(fun, 0);
+        //     }
+        // }
+        // function add(a, b){
+        //     return a + b;
+        // }
+        // var addCurry = curry(add,1,2);
+        // console.log(addCurry(3));
+
+        function curry(fn, args) {
+            console.log("fn.length:",fn.length);
+            var length = fn.length;
+            args = args || [];
+
+            return function() {
+                var _args = args.push(...arguments);
+                if (_args.length < length) {
+                    //递归处理下一个()
+                    return curry.call(this, fn, _args);
+                }
+                else {
+                    return fn.apply(this, _args);
+                }
+            }
+        }
+
+        // var fn = curry(function(a, b, c) {
+        //     console.log([a, b, c]);
+        // });
+        // fn(1)(2)(5);
+
+        var curry1 = fn =>
+            judge = (...args) =>
+                args.length === fn.length ? fn(...args): (arg) => judge(...args, arg);
+        var fn1 = curry1(function(a, b, c,d) {
+            console.log([a, b, c]);
+        });
+        fn1(1)(2);
+    </script>
+</body>
+</html>

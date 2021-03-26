@@ -9,7 +9,7 @@
     <h3>手写call、apply、bind</h3>
     <script>
         //call: 在指定上下文对象上执行函数，
-        //params：上下文对象Obj
+        //params：上下文对象context 、
         //实现思路：
         //1. 将函数设为对象的属性
         //2. 执行该函数
@@ -73,10 +73,18 @@
             return res;
         }
 
-        //bind：为context产生新的函数。
-        //params：新函数的参数为 args、arguments
-        //难点：
-        //新产生的函数可以作为构造函数使用，new出新对象
+        //bind：产生新的构造函数，函数执行时上下文this指向context。
+        //1、产生新的构造函数，函数并不执行；
+        //2、函数执行时上下文this指向context；
+        //3、bind中的参数是新的函数参数的一部分，与新函数执行时的参数合并成最终的参数。
+
+        //mock实现思路
+        //1、创建新的函数；
+        //2、返回闭包：新的函数引用 + 指向当前执行函数的变量；
+        //3、修改新的函数的原型指向
+        //注意点：
+        //新产生的函数可以作为构造函数使用，new出新对象；
+        //参数的合并。
         Function.prototype.myBind = function(context){
             if (typeof this !== "function") {
                 throw new Error("Function.prototype.bind - what is trying to be bound is not callable");
@@ -100,7 +108,7 @@
         //     }
         // }
 
-        //模拟Object.create()
+        // 模拟Object.create()
         // Object.create = function(o){
         //     function f(){};
         //     f.prototype = o;
@@ -137,6 +145,68 @@
 
         // obj1.sayHello(24);
         // obj1.sayHello.myCall(obj2, 24);
+
+        Function.prototype.myApply2 = function(context, arr){
+            //判断context，必须是对象或者能转为对象
+            if(typeof context === 'object'){
+                //null 、和object的情况
+                context = context || window;
+            }else{
+                if(typeof context === 'undefined'){
+                    context = window;
+                }else{
+                    // 基本包装类型 1 => Number{1}
+                    context = Object(context);
+                }
+            } 
+            const fn = Symbol();
+            context[fn] = this;
+            const res = context[fn](...arr);
+            delete context[fn];
+            return res;
+        }
+
+        //call: 在指定this对象和若干函数参数条件下执行函数
+        //1、指定函数执行上下文this的指向；
+        //2、执行了函数。
+
+        //模拟实现思路：
+        //1. 将函数设为对象的属性
+        //2. 执行该函数
+        //3. 删除该属性
+
+        //注意点：
+        //1. call的第一个参数可以为空、基础变量类型、对象类型
+        //2. 函数有返回值
+        Function.prototype.myCall2 = function(context, ...args){
+            if(typeof context === 'object'){
+                //null 、和object的情况
+                context = context || window;
+            }else{
+                if(typeof context === 'undefined'){
+                    context = window;
+                }else{
+                    // 基本包装类型 1 => Number{1}
+                    context = Object(context);
+                }
+            }               
+            const fn = Symbol();
+            context[fn] = this;
+            const res = context[fn](...args);
+            delete context[fn];
+            return res;
+        }
+
+        var value = 2;     
+        var foo = {
+            value: 1
+        };
+        function bar(arg1, arg2) {
+            console.log(this.value, arg1, arg2);
+        }
+        bar.myApply2(foo, ['arg1', 'arg2']); // 1 "arg1" "arg2"
+        bar.myCall2(foo, 'arg1');            // 1 "arg1" undefined
+        bar.myCall2(null, 'arg1');           // 2 "arg1" undefined
     </script>
 </body>
 </html>

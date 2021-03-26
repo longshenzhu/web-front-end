@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h4>review  1</h4>
+    <script>
+        Function.prototype.a = function(){
+            console.log(1);
+        }
+        Object.prototype.b = function(){
+            console.log(2);
+        }
+        function A(){}
+        a = new A();
+
+        a.a();
+        a.b();
+
+        async function async1(){
+            console.log("async1 start");
+            await async2();
+            console.log("asyn1 end");
+        }
+
+        async function async2(){
+            console.log("async2");
+        }
+
+        console.log("script start");
+        async1();
+        
+        new Promise(function(resolve, reject){
+            console.log("promise start")
+            resolve();
+        }).then(function(){
+            console.log("promise then");
+        })
+        console.log("script end");
+        // 错： script start 、async1 start 、promise start、 script end、 async2、 asyn1 end 、promise then
+        // 正确：script start 、async1 start 、 async2、promise start、 script end、 asyn1 end 、promise then  
+        // await 后的方法还是会同步，方法后的代码才是微任务
+        
+    </script>
+</body>
+</html>

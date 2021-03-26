@@ -77,6 +77,7 @@
             console.log("怎么还有啊:", res);
         })
 
+<<<<<<< HEAD
         function promise(fn){
             this.state = PENDING;
             this.result = null;
@@ -99,10 +100,76 @@
 
             try {
                 fn(resolve, reject);
+=======
+        function promisify(fn){
+            return function(...args){
+                return new promise(function(resolve, reject){
+                    var res = fn.apply(this, args);
+                    resolve(res);
+                })
+            }
+        }
+
+        //https://mp.weixin.qq.com/s/qdJ0Xd8zTgtetFdlJL3P1g
+        function Promise(func){
+            this.state = PENDING;       // Promise的状态
+            this.result = null;         // 成功的 和 错误的结果
+            this.callbacks = [];
+
+            let onFulfilled = value => transition(this, FULFILLED, value);
+            let onRejected = value => transition(this, REJECTED, reason);
+
+            let ignore = false;
+            let resolve = value => {
+                if (ignore) return;
+                ignore = true;
+                resolvePromise(this, value, onFulfilled, onRejected);
+            }
+            let reject = reason => {
+                if (ignore) return;
+                ignore = true;
+                onRejected(reason);
+            }
+
+            try {
+                func(resolve, reject);
             } catch (error) {
                 reject(error);
             }
         }
+
+        //对promise进行状态转移
+        const transition = (promise, state, result) => {
+            if(promise.state !== PENDING) return;
+            promise.state = state;
+            promise.result = result;
+        }
+
+        Promise.prototype.then = function(onFulfilled, onRejected){
+            return new Promise((resolve, reject) => {
+                let callback = { onFulfilled, onRejected, resolve, reject };
+                if(this.state === PENDING){
+                    this.callbacks.push(callback);
+                }else{
+                    setTimeout(()=> handleCallback(callback, this.state, this.result), 0);
+                }
+            })
+        }
+        //在当前promise和下一个promise之间进行状态传递
+        const handleCallback = (callback, state, result) => {
+            let { onFulfilled, onRejected, resolve, reject } = callback;
+            try {
+                if(state === RESOLVED){
+                    isFunction(onFulfilled)? resolve(onFulfilled(result)) : resolve(result);
+                }else if(state === REJECTED){
+                    isFunction(onRejected)? resolve(onRejected(result)) : reject(result);
+                }
+>>>>>>> 23a064de6e784a7d0b5ee86923737143ec9deeba
+            } catch (error) {
+                reject(error);
+            }
+        }
+<<<<<<< HEAD
 
         promise.prototype.then = function(resolveCb, rejectCb){
             // const that = this;
@@ -115,9 +182,87 @@
             }
             if(this.state === REJECTED){
                 rejectCb(this.value);
+=======
+        //对特殊状态的result进行处理
+        const resolvePromise = (promise, result, resolve, reject) => {
+            if(result === promise){
+                let reason = new TypeError('Can not fufill promise with itself');
+                return reject(reason);
+            }
+
+            if(isPromise(result)){
+                return result.then(resolve, reject);
+            }
+
+            if(isThenable(result)){
+                try {
+                    let then = result.then;
+                    if(isFunction(then)){
+                        return new Promise(then.bind(result)).then(resolve, reject);
+                    }
+                } catch (error) {
+                    return reject(error);
+                }
+            }
+            //
+            resolve(result);
+        }
+        
+        const Pending = "pending";
+        const Resolved = "resolved";
+        const Rejected = "rejected";
+        function myPromise(func){
+            this.status = Pending;
+            this.value = null;
+            this.error = null;
+
+            this.resolvedCallbacks = [];
+            this.rejectCallbacks = [];
+
+            this.resolve = res => {
+                if(this.status == Pending){
+                    this.status = Resolved;
+                    this.value = res;
+                    this.resolvedCallbacks.map( cb =>{
+                        cb(this.value);
+                    })
+                }
+            }
+
+            this.reject = err =>{
+                if(this.status == Pending){
+                    this.status = Rejected;
+                    this.err = err;
+                    this.rejectCallbacks.map( cb => {
+                        cb(this.err);
+                    })
+                }
+            }
+            try {
+                func(this.resolve, this.reject);
+            } catch (error) {
+                this.reject(error);
+            }
+        }
+        myPromise.prototype.then = function(resolveCb, rejectCb){
+            if(this.status == Pending){
+                this.resolvedCallbacks.push(resolveCb);
+                this.rejectCallbacks.push(rejectCb);
+            }
+
+            if(this.status == Resolved){
+                resolveCb(this.value);
+            }
+
+            if(this.status == Rejected){
+                rejectCb(this.err);
+>>>>>>> 23a064de6e784a7d0b5ee86923737143ec9deeba
             }
             return this;
         }
     </script>
+
+
+
 </body>
 </html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>代理与反射</title>
+</head>
+<body>
+    <h2>代理与反射</h2>
+    <script>
+        const obj = {
+            name : "赝品",
+            age : 30
+        }
+        const handle = {
+            //get捕获器:三个参数：目标对象、访问的属性、代理对象
+            get(trapTarget, property, proxyObj) {
+                // console.log(trapTarget === obj);
+                // console.log(property);
+                // console.log(proxyObj === proxy); 
+
+                // return trapTarget[property];
+                // 使用全局对象Reflect调用目标对象原方法
+                return Reflect.get(...arguments);
+            }
+        }
+        const proxy = new Proxy(obj, handle);
+        console.log(obj.name);
+        console.log(proxy.name);
+    </script>
+</body>
+</html>
