@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symbol</title>
+</head>
+<body>
+    <h2>Symbol使用</h2>
+    <script>
+        //创建方式
+        //1.基本方式
+        var id = Symbol();
+        console.log(Symbol() === Symbol());     // false
+        //2.添加实力描述
+        var idWithDesc = Symbol("desc");
+        console.log(Symbol("key") === Symbol("key"));  //false ,Symbol的参数是描述串，传入对象会调用toString()
+        //3.同一个Symbol值
+        var idByFor = Symbol.for("key");
+        console.log(Symbol.for("key") === Symbol.for("key"));  //true
+        console.log(Symbol.keyFor(Symbol.for("key")));       //返回key值
+
+        //注意点：
+        //Symbol是原始类型，不可使用new；
+        //instanceof的结果为false；
+        //Symbol作为属性名，不会出现在for...in、for...of 循环中；
+        //也不会被 Object.keys()、Object.getOwnPropertyNames()、JSON.stringify() 返回。
+        //使用Object.getOwnPropertySymbols 方法，可以获取指定对象的所有 Symbol 属性名。
+        var obj = {};
+        var a = Symbol('a'); var b = Symbol('b');
+        obj[a] = 'Hello'; obj[b] = 'World';
+        var objectSymbols = Object.getOwnPropertySymbols(obj);
+        console.log(objectSymbols); // [Symbol(a), Symbol(b)]
+
+        //使用场景
+        //1.唯一属性值
+        var key = Symbol();
+        var obj = {};
+        obj[key] = 'value';
+        //2.定义类的私有变量、方法
+        //User.js
+        const AGE = Symbol()
+        const GET_AGE = Symbol()
+        class User {
+            constructor(name, sex, age) {
+                this.name = name
+                this.sex = sex
+                this[AGE] = age
+                this[GET_AGE] = function () {
+                    return this[AGE]
+                }
+            }
+            printAge() {
+                console.log(this[GET_AGE]())
+            }
+
+        }
+        module.exports = User
+        //test.js
+        let User = require('./User')
+
+        let u1 = new User('xm', 'M', 18)
+        let u2 = new User('xh', 'W', 20)
+        console.log(u1.name) // xm
+        console.log(u1.age) // undefined
+        u1.printAge() // 18
+        console.log(u2.name) // xh
+        console.log(u2.age) // undefined
+        u2.printAge() // 20
+        //3.运用在单例模式中
+        //Phone.js
+        class Phone {
+            constructor() {
+                this.name = '小米'
+                this.price = '1999'
+            }
+        }
+
+        let key = Symbol.for('Phone')
+
+        if (!global[key]) {
+            global[key] = new Phone()
+        }
+
+        module.exports = global[key]
+        //test.js
+        let p1 = require('./Phone')
+        let p2 = require('./Phone')
+        console.log(p1 === p2) // true
+    </script>
+</body>
+</html>

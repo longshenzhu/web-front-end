@@ -76,6 +76,48 @@
         }).then((res)=>{
             console.log("怎么还有啊:", res);
         })
+
+        function promise(fn){
+            this.state = PENDING;
+            this.result = null;
+            this.resolveCallbacks = [];
+            this.rejectCallbacks = [];
+            
+            let resolve = res =>{
+                if(this.state !== PENDING)return;
+                this.state = RESOLVED;
+                this.result = res;
+                this.resolveCallbacks.map(cb => cb(res));
+            }
+
+            let reject = err => {
+                if(this.state !== PENDING)return;
+                this.state = REJECTED;
+                this.result = err;
+                this.rejectCallbacks.map(cb => cb(err));
+            }
+
+            try {
+                fn(resolve, reject);
+            } catch (error) {
+                reject(error);
+            }
+        }
+
+        promise.prototype.then = function(resolveCb, rejectCb){
+            // const that = this;
+            if(this.state === PENDING){
+                this.resolveCallbacks.push(resolveCb);
+                this.rejectCallbacks.push(rejectCb);
+            }
+            if(this.state === RESOLVED){
+                resolveCb(this.value);
+            }
+            if(this.state === REJECTED){
+                rejectCb(this.value);
+            }
+            return this;
+        }
     </script>
 </body>
 </html>
