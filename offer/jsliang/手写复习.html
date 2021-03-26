@@ -57,12 +57,17 @@
             if(typeof fn !== "function"){
                 throw new Error("Function.prototype.bind - what is trying to be bound is not callable");
             }
-            var newFunc = function(){
+            function newFunc(){
                 var args = arg1.concat(Array.from(arguments));
-                var res = fn.apply(context, args);
+                var res = fn.apply(this instanceof newFunc? this : context, args);
                 return res;
             };
             return newFunc;
+        }
+
+        //防抖，最后一次生效
+        function debounce(){
+
         }
 
         var name = "555"

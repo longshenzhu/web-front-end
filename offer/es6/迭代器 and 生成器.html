@@ -46,9 +46,33 @@
         console.log(g.next("第一个next值忽略"));   //{value: "foo", done: false}
         console.log(g.next("传递给yield的值"));   //{value: "bar", done: false}
         console.log(g.next());   //{value: "baz", done: true}
-        for (const x of g) {
+        function* generatorFn() {
+            yield 1;
+            yield 2;
+            yield 3;
+        }
+        for (const x of generatorFn()) {
             console.log(x);
-        } 
+        }
+        // 1
+        // 2
+        // 3 
+
+        class Foo {
+            constructor() {
+                this.values = [1, 2, 3];
+            } 
+            * [Symbol.iterator]() {
+                yield* this.values;
+            }
+        }
+        const f = new Foo();
+        for (const x of f) {
+            console.log(x);
+        }
+        // 1
+        // 2
+        // 3 
     </script>
 </body>
 </html>

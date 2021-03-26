@@ -69,18 +69,21 @@
         // 去重字符串：[...new Set(str)].join("")
         console.log([...new Set("ssstrinng")].join(""));
         // 去重数组：[...new Set(arr)]或Array.from(new Set(arr))
+        console.log([...new Set([1, 1, 2, 2])]);
+        
         // 集合数组
-
-        // 声明：const a = new Set(arr1)、const b = new Set(arr2)
-        // 并集：new Set([...a, ...b])
-        // 交集：new Set([...a].filter(v => b.has(v)))
-        // 差集：new Set([...a].filter(v => !b.has(v)))
-
-
+        const a = new Set([1, 2, 3]);const b = new Set(2, 3, 4);
+        // 并集：
+        new Set([...a, ...b])
+        // 交集：
+        new Set([...a].filter(v => b.has(v)))
+        // 差集：
+        new Set([...a].filter(v => !b.has(v)))
         // 映射集合
-
-        // 声明：let set = new Set(arr)
-        // 映射：set = new Set([...set].map(v => v * 2))或set = new Set(Array.from(set, v => v * 2))
+        let set = new Set(arr)
+        // 映射：
+        set = new Set([...set].map(v => v * 2))   //或
+        set = new Set(Array.from(set, v => v * 2))
 
 
     </script>

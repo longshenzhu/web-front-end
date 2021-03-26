@@ -168,6 +168,61 @@
             //
             resolve(result);
         }
+        
+        const Pending = "pending";
+        const Resolved = "resolved";
+        const Rejected = "rejected";
+        function myPromise(func){
+            this.status = Pending;
+            this.value = null;
+            this.error = null;
+
+            this.resolvedCallbacks = [];
+            this.rejectCallbacks = [];
+
+            this.resolve = res => {
+                if(this.status == Pending){
+                    this.status = Resolved;
+                    this.value = res;
+                    this.resolvedCallbacks.map( cb =>{
+                        cb(this.value);
+                    })
+                }
+            }
+
+            this.reject = err =>{
+                if(this.status == Pending){
+                    this.status = Rejected;
+                    this.err = err;
+                    this.rejectCallbacks.map( cb => {
+                        cb(this.err);
+                    })
+                }
+            }
+            try {
+                func(this.resolve, this.reject);
+            } catch (error) {
+                this.reject(error);
+            }
+        }
+        myPromise.prototype.then = function(resolveCb, rejectCb){
+            if(this.status == Pending){
+                this.resolvedCallbacks.push(resolveCb);
+                this.rejectCallbacks.push(rejectCb);
+            }
+
+            if(this.status == Resolved){
+                resolveCb(this.value);
+            }
+
+            if(this.status == Rejected){
+                rejectCb(this.err);
+            }
+            return this;
+        }
     </script>
+
+
+
 </body>
 </html>
