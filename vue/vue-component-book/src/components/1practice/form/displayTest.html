@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实验代码</title>
+</head>
+<body>
+    <h4>测试一下正则切分.vue文件</h4>
+    <script>
+        function splitCode(source, type){
+            const regex = new RegExp(`<${type}[^>]*>`);
+            let openingTag = source.match(regex);
+
+            console.log(openingTag);
+
+            if(!openingTag)return '';
+            else openingTag = openingTag[0];
+
+            // const 
+        }
+
+        var vueTemp = `
+            <template>
+                <div ref="display"></div>
+            </template>
+            <script>
+                export default {
+                    props: {
+                        code: {
+                            type: String,
+                            default: ''
+                        }
+                    },
+                    data(){
+                        return {
+                            html: '',
+                            js: '',
+                            css: ''
+                        }
+                    },
+                    methods: {
+                        
+                    }
+                }
+            </script>
+            <style>
+
+            </style>`;
+            splitCode(vueTemp, script);
+        
+    </script>
+</body>
+</html>
