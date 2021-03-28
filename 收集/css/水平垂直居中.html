@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>水平垂直显示</title>
+    <link rel="stylesheet" href="normalize.css">
+    <style>
+        .parent {
+            width: 400px;
+            height: 300px;
+            border: 1px solid goldenrod;
+        }
+        .child {
+            border: 1px solid greenyellow;
+        }
+        /* 单行的文本、inline 或 inline-block 元素  */
+        /* 水平居中 */
+        p {
+            width: 120px;
+            border: 1px solid sienna;
+        }
+        .x-inline-center {
+            text-align: center;
+        }
+        /* 垂直居中 */
+        .y-inline-center {
+            /* padding-top: 10px;
+            padding-bottom: 10px; */
+            height: 100px;
+            line-height: 100px;
+        }
+
+        /* 固定宽高的块级盒子 */
+        /* 让parent中的块元素居中 */
+        .relative {
+            position: relative;
+        }
+        .w-h-child {
+            width: 160px;
+            height: 120px;
+            border: 1px solid greenyellow;
+        }
+        /* .x-w-h-center {
+            margin: 0 auto;
+        } */
+        .w-h-center {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+
+            /* position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -60px 0 0 -80px; */
+        }
+        /* 非固定宽高的块级盒子 */
+
+        .with-line-height {
+            line-height: 300px;
+            text-align: center;
+        }
+        .no-w-h-center {
+            /* position: absolute;
+            left:50%;
+            top: 50%;
+            transform: translate(-50%, -50%); */
+
+            display: inline;
+            line-height: initial;
+            vertical-align: middle;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <p class="x-inline-center y-inline-center">水平居中实现</p>
+    </div>
+    <h3>固定宽高的块元素居中：</h3>
+    <div class="parent relative">
+        <div class="w-h-child w-h-center">
+            <p class="w-h-center x-inline-center y-inline-center">水平居中实现</p>
+        </div>
+    </div>
+    <h3>非固定宽高的块元素居中：</h3>
+    <div class="parent relative with-line-height">
+        <div class="child no-w-h-center">
+            水平居中实现
+            <!-- <p class="x-inline-center y-inline-center">水平居中实现</p> -->
+        </div>
+    </div>
+</body>
+</html>
