@@ -1,5 +1,3 @@
-
-
 var playerAction = process.argv[process.argv.length - 1];
 console.log(playerAction);
 
@@ -14,12 +12,15 @@ if (random < 1) {
 
 if(computerAction === playerAction) {
     console.log('平局');
+    return 0;
 } else if (
     (computerAction === 'rock' && playerAction === 'paper') || 
     (computerAction === 'paper' && playerAction === 'scissor') ||
     (computerAction === 'scissor' && playerAction === 'rock')
 ) {
-    console.log('你赢了')
+    console.log('你赢了');
+    return 1;
 } else {
-    console.log('你输了')
+    console.log('你输了');
+    return -1;
 }
