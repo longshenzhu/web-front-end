@@ -5517,7 +5517,7 @@ levn@^0.3.0, levn@~0.3.0:
     prelude-ls "~1.1.2"
     type-check "~0.3.2"
 
-lib-flexible@^0.3.2:
+lib-flexible@0.3.2:
   version "0.3.2"
   resolved "https://registry.npm.taobao.org/lib-flexible/download/lib-flexible-0.3.2.tgz#06f5a74832314a2d35c12039bc9c3ca2daeaa426"
   integrity sha1-BvWnSDIxSi01wSA5vJw8otrqpCY=
@@ -6954,7 +6954,7 @@ postcss-ordered-values@^4.1.2:
     postcss "^7.0.0"
     postcss-value-parser "^3.0.0"
 
-postcss-px2rem@^0.3.0:
+postcss-px2rem@0.3.0:
   version "0.3.0"
   resolved "https://registry.npm.taobao.org/postcss-px2rem/download/postcss-px2rem-0.3.0.tgz#0dfa4e8a268fa7478273f0c4b47c619834894041"
   integrity sha1-DfpOiiaPp0eCc/DEtHxhmDSJQEE=

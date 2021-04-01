@@ -1,21 +1,35 @@
 <template>
   <div>
-      <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <van-button type="primary">默认按钮</van-button>
+    <div class="home">
+      <div>您好</div>
+      <div><i class="iconfont icon-favorites-fill"></i></div>
+    </div>
+    
   </div>
 </template>
 
 <script>
 
-import HelloWorld from '../components/HelloWorld.vue'
-
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+
   }
 }
 </script>
 
-<style>
-
+<style lang="less">
+  .home {
+    color: red;
+    div {
+      width: 75px;
+      height: 75px;
+      font-size: 18px;
+      background: greenyellow;
+      i {
+        color: red;
+      }
+    }
+  }
 </style>
