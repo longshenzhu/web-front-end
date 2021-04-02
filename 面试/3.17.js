@@ -4,7 +4,6 @@ var retange2 = [{x:2,y:2},{x:5,y:3}];
 function fn(retange1, retange2){
     var x1 = retange1[1];
     var x2 = retange2[0];
-    
 
     //判断是否相交
     if(x1.x > x2.x && x1.y < x2.y){
