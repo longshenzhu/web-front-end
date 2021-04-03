@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js 轮播一</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .showContainer {
+            width: 480px;
+            height: 250px;
+            border: 5px solid maroon;
+            margin: 50px auto;
+
+            position: relative; 
+            overflow: hidden;
+        }
+        .container {
+            position: absolute;
+            width: 500px;
+        }
+        .container img {
+            display: block;
+            float: left;
+            height: 250px;
+            /* position: absolute; */
+        }
+
+        .dots {
+            width: inherit;
+            position: absolute;
+            bottom: 12px;
+            text-align: center;
+        }
+        .dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            margin-right: 10px;
+            background: orange;
+            border: 3px solid #AAA;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .left-triangle {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            margin-top: -10px;
+            width: 0px;
+            height: 0px;
+            border-right: 20px solid #aaaaaa;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            display: none;
+        }
+        .right-triangle {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            margin-top: -10px;
+            width: 0px;
+            height: 0px;
+            border-left: 20px solid #aaaaaa;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            display: none;
+        }
+        .showContainer:hover .left-triangle {
+            display: block;
+        }
+        .showContainer:hover .right-triangle {
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="showContainer">
+        <!-- 图片区 -->
+        <div class="container" style="left: 0px;">
+            <img src="images/1.png" alt="A cat">
+            <img src="images/2.png" alt="A dog">
+            <img src="images/3.png" alt="dandelion">
+        </div>
+        <!-- 底部提示原点 -->
+        <div class="dots">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+        <!-- 左侧箭头 -->
+        <div class="left-triangle">
+            <span ></span>
+            <!-- <img src="" alt="指向左边的箭头" > -->
+        </div>
+        <!-- 右侧箭头 -->
+        <div class="right-triangle">
+            <!-- <img src="" alt="指向右边的箭头" > -->
+        </div>
+    </div>
+    <script>
+        function movefunc() {
+            var container = document.getElementsByClassName("container")[0];    //获取滚动容器
+            console.log(container);
+            var oneImgWidth = container.children[0].offsetWidth;    //获取一张图片的宽度，即每次左移的距离
+            console.log(oneImgWidth);
+            var oldLeft = parseInt(container.style.left);    //获取滚动容器的初始的左距离，利用parseInt()方法取整
+            var newLeft = oldLeft - oneImgWidth;
+            container.style.left = newLeft + "px";      //改变滚动容器的左距离
+        }
+
+        function autoRullImg() {
+            var timer = null;
+            var showContainer = document.getElementsByClassName("showContainer")[0]; 
+            var container = document.getElementsByClassName("container")[0];  
+            var imgNum = container.children.length;  
+            var oneImgWidth = container.children[0].offsetWidth;  
+
+            function rullAuto() {
+                timer =  setInterval(function(){
+                    movefunc();
+                    if (parseInt(container.style.left) <= -imgNum * oneImgWidth) {
+                        container.style.left = "0px";
+                    }
+                }, 800); 
+            }
+            rullAuto();
+            
+            showContainer.onmouseover = function() {
+                clearInterval(timer);
+            };
+            showContainer.onmouseout = function() {
+                rullAuto();
+            };
+        }
+        autoRullImg();
+    </script>
+</body>
+</html>
