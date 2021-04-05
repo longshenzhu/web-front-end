@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轮播图模仿</title>
+    <style>
+        body, div, span {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 600px;
+            height: 300px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wrap {
+            position: absolute;
+            width: 4200px;
+            height: 400px;
+        }
+        img{
+            width: 600px;
+            height: 400px;
+            /* float: left; */
+        }
+        .button {
+            position: absolute;
+            bottom: 12px;
+            height: 20px;
+            text-align: center;
+        }
+        div.button span{
+            margin-left: 5px;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: greenyellow;
+            text-align: center;
+            color: white;
+            cursor: pointer;
+            /* opacity: 0.6; */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="wrap" style="left:-600px">
+            <img src="./imgs/5.jpg" alt="5">
+            <img src="./imgs/1.jpg" alt="1">
+            <img src="./imgs/2.jpg" alt="2">
+            <img src="./imgs/3.jpg" alt="3">
+            <img src="./imgs/4.jpg" alt="4">
+            <img src="./imgs/5.jpg" alt="5">
+            <img src="./imgs/1.jpg" alt="1">
+        </div>
+        <div class="button">
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+        </div>
+    </div>
+</body>
+</html>

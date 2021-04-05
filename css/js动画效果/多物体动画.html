@@ -1,0 +1,66 @@
+<!-- 速度变化：改变left、right、width 、height 、opacity -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body, div, span {
+            margin: 0;
+            padding: 0;
+        }
+        ul, li {
+            list-style: none;
+        }
+        ul li {
+            width: 200px;
+            height: 100px;
+            background-color: yellow;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script>
+        window.onload = function(){
+            const lis = document.getElementsByTagName("li");
+            for (let i = 0; i < lis.length; i++) {
+                const li = lis[i];
+                li.timer = null;
+                li.addEventListener("mouseenter", function(target, event) {
+                    startMove(this, 400);
+                })
+                li.addEventListener("mouseleave", function(target, event) {
+                    startMove(this, 200);
+                })
+                
+            }
+            function startMove(obj, target) {
+                clearInterval(obj.timer);
+                
+                obj.timer = setInterval(()=>{
+                    let offsetWidth = obj.offsetWidth;
+                    let speed = (target - offsetWidth)/10;       //缓冲运动，越接近目标速度越小
+                    speed = speed > 0? Math.ceil(speed) : Math.floor(speed); 
+                    if(offsetWidth == target){
+                        clearInterval(obj.timer);
+                    } else {
+                        obj.style.width = offsetWidth + speed + 'px';
+                    } 
+                },10);
+            }
+
+            
+        }
+    </script>
+</body>
+</html>

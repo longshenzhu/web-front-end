@@ -1,0 +1,54 @@
+<!-- 速度变化：改变left、right、width 、height 、opacity -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body, div, span {
+            margin: 0;
+            padding: 0;
+        }
+        #div1 {
+            width: 200px;
+            height: 200px;
+            background-color: brown;
+            border: 1px solid black;
+        }
+
+    </style>
+    <script>
+        //现象：矩形width越来越大
+        //原因：offsetWidth的计算是盒子的width。
+        //解决方案：currentStyle 针对IE，getComputedStyle 针对其它
+        function getStyle(obj, attr) {
+            
+            if(obj.currentStyle) {
+                return obj.currentStyle[attr];
+            }else {
+                return getComputedStyle(obj, false)[attr];
+            }
+        }
+        window.onload = function(){
+            const div1 = document.getElementById("div1");
+            let time = null;
+            function startMove(target) {
+                clearInterval(time);
+                time = setInterval(()=>{
+                    let offsetWidth = div1.offsetWidth;
+                    div1.style.width = parseInt(getStyle(div1,'width')) - 1 + 'px';
+                },10);
+            }
+
+            div1.addEventListener("mouseenter", function(target, event) {
+                startMove(0);
+            })
+        }
+    </script>
+</head>
+<body>
+    <div id="div1">
+    </div>
+</body>
+</html>
