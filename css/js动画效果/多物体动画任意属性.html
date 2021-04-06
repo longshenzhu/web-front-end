@@ -1,0 +1,103 @@
+<!-- 速度变化：改变left、right、width 、height 、opacity -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body, div, span {
+            margin: 0;
+            padding: 0;
+        }
+        ul, li {
+            list-style: none;
+        }
+        ul li {
+            width: 200px;
+            height: 100px;
+            background-color: yellow;
+            margin-top: 20px;
+            border: 4px solid black;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script>
+        function getStyle(obj, attr) {
+            
+            if(obj.currentStyle) {
+                return obj.currentStyle[attr];
+            }else {
+                return getComputedStyle(obj, false)[attr];
+            }
+        }
+        window.onload = function(){
+            const lis = document.getElementsByTagName("li");
+            for (let i = 0; i < lis.length; i++) {
+                const li = lis[i];
+                li.timer = null;
+                li.addEventListener("mouseenter", function(target, event) {
+                    // startMove(this,'width', 400);
+                    startMove(this,'height', 200);
+                })
+                li.addEventListener("mouseleave", function(target, event) {
+                    // startMove(this, 'width', 200);
+                    startMove(this,'height', 100);
+                })
+                
+            }
+            // function startMove(obj, attr, target) {
+            //     clearInterval(obj.timer);
+                
+            //     obj.timer = setInterval(()=>{
+            //         let cur = parseInt(getStyle(obj, attr));
+            //         let speed = (target - cur)/10;       //缓冲运动，越接近目标速度越小
+            //         speed = speed > 0? Math.ceil(speed) : Math.floor(speed); 
+            //         if(cur == target){
+            //             clearInterval(obj.timer);
+            //         } else {
+            //             obj.style[attr] = cur + speed + 'px';
+            //         } 
+            //     },10);
+            // }
+            
+            //处理透明度的情况
+            var alpha = 30;
+            function startMove(obj, attr, target) {
+                clearInterval(obj.timer);
+                obj.timer = setInterval(()=>{
+                    let cur = 0;
+                    if(attr == 'opacity'){
+                        cur = Math.round(parseFloat(getStyle(obj, attr)));
+                    } else {
+                        cur = parseInt(getStyle(obj, attr));
+                    } 
+                    let speed = (target - cur)/10;       //缓冲运动，越接近目标速度越小
+                    speed = speed > 0? Math.ceil(speed) : Math.floor(speed); 
+                    if(cur == target){
+                        clearInterval(obj.timer);
+                    } else {
+                        if(attr == 'opacity') {
+                            obj.style.opacity = (cur + speed) /100;
+                        }else {
+                            obj.style[attr] = cur + speed + 'px';
+                        }
+                        
+                    } 
+                },10);
+            }
+
+            
+        }
+    </script>
+</body>
+</html>
