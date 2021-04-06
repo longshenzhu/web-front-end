@@ -5,16 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>轮播图模仿</title>
     <style>
-        body, div, span {
+        * {
             margin: 0;
             padding: 0;
+            text-decoration: none;
         }
 
         .container {
-            width: 600px;
-            height: 300px;
-            margin: 0 auto;
             position: relative;
+            width: 600px;
+            height: 400px;
+            margin: 100px auto;
+            box-shadow: 0 0 5px aqua;
             overflow: hidden;
         }
 
@@ -26,11 +28,14 @@
         img{
             width: 600px;
             height: 400px;
-            /* float: left; */
+            float: left;
         }
-        .button {
+        .container .button {
             position: absolute;
+            left: 50%;
+            margin-left: -75px;
             bottom: 12px;
+            width: 150px;
             height: 20px;
             text-align: center;
         }
@@ -48,6 +53,48 @@
         }
 
     </style>
+    <script src="./js/startMove.js"></script>
+    <script>
+        window.onload = function(){
+            var _wrap = document.getElementsByClassName('wrap')[0];
+            var _dot = document.getElementsByTagName('span');
+
+            var timer = 0;
+            var dotIndex = 0;
+            var dotLen = dot.length;
+            var newLeft = -600;
+            function next() {
+                if(newLeft === -3000){
+                    newLeft = 0;
+                    _wrap.style.left = newLeft + 'px';
+                }
+                newLeft -= 600;
+                startMove(_wrap,{ left: newLeft });
+            }
+            function prev() {
+                if(newLeft === 0) {
+                    newLeft = -3000;
+                    _wrap.style.left = newLeft + 'px';
+                }
+                newLeft += 600;
+                startMove(_wrap,{ left: newLeft });
+            }
+
+            function autoPlay(){
+                timer = setInterval(function(){
+                    next();
+                },2000);
+            }
+            
+            function setCurrentDot(){
+                for (let i = 0; i < dot.length; i++) {
+                    dot[i].className = '';                  
+                }
+                dot[dotIndex].className = 'on';
+            }
+            
+        }
+    </script>
 </head>
 <body>
     <div class="container">
