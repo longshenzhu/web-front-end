@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三栏布局</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .layout {
+            color: #fff;
+            /* padding: 0 100px; */
+            min-width: 500px;
+        }
+        .clearfix {
+            zoom: 1;
+        }
+        .clearfix::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        section {
+            margin-bottom: 50px;
+        }
+        .w150 {
+            width: 150px;
+            height: 50px;
+        }
+        .orange {
+            background-color: orange;
+        }
+        .green {
+            background-color: green;
+        }
+        h4 {
+            position: relative;
+            color: #333;
+            margin: 20px 0 10px;
+        }
+        h4::before {
+            content: '#';
+            position: absolute;
+            left: -20px;
+            top: -1px;
+            font-size: 18px;
+            color: #38ab89;
+        }
+        main {
+            height: 100px;
+        }
+        .left {
+            float: left;
+        }
+        .right {
+            float: right;
+        }
+        .hidden {
+            overflow: hidden;
+        }
+        .flex {
+            display: flex;
+        }
+        .flex main {
+            flex: 1;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 150px auto 150px;
+        }
+        .grid aside {
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="layout">
+        <h3>方法一：圣杯布局</h3>
+        <section>
+
+        </section>
+        <h4>方法三：float + overflow (BFC原理)</h4>
+        <section>
+            <aside class="w150 left orange">aside</aside>
+            <aside class="w150 right orange">aside</aside>
+            <main class="green hidden">main</main>
+        </section>
+        <h4>方法四：flex</h4>
+        <section class="flex">
+            <aside class="w150  orange">aside</aside>
+            <main class="green">main</main>
+            <aside class="w150  orange">aside</aside>
+        </section>
+        <h4>方法五：grid</h4>
+        <section class="grid">
+            <aside class=" orange">aside</aside>
+            <main class="green">main</main>
+            <aside class=" orange">aside</aside>
+        </section>
+    </div>
+</body>
+</html>
