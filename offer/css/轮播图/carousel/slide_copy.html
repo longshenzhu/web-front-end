@@ -39,7 +39,7 @@
             height: 20px;
             text-align: center;
         }
-        div.button span{
+        .button span{
             margin-left: 5px;
             display: inline-block;
             width: 20px;
@@ -49,19 +49,77 @@
             text-align: center;
             color: white;
             cursor: pointer;
-            /* opacity: 0.6; */
+            opacity: 0.5;
+        }
+
+        .button .on{
+            opacity: 1;
+        }
+
+        /* 箭头样式 */
+        .container .jt{
+            position: absolute;
+            top: 40%;
+            color:greenyellow;
+            padding: 0px 14px;
+            font-size: 55px;
+            text-align: center;
+            display: none;
+        }
+
+        .container .jt_left{
+            left: 10px;
+        }
+
+        .container .jt_right{
+            right: 10px;
+        }
+
+        .container:hover .jt{
+            display: block;
+            opacity: 0.4;
+        }
+
+        .container .jt:hover{
+            opacity: 1;
         }
 
     </style>
     <script src="./js/startMove.js"></script>
     <script>
         window.onload = function(){
+            var _container = document.getElementsByClassName('container')[0];
             var _wrap = document.getElementsByClassName('wrap')[0];
-            var _dot = document.getElementsByTagName('span');
+            var _dots = document.getElementsByTagName('span');
+            var _left = document.getElementsByClassName('jt_left')[0];
+            var _right = document.getElementsByClassName('jt_right')[0];
+            
+            _container.addEventListener("mouseenter", function(){
+                clearInterval(timer);
+            }, false)
+            _container.addEventListener("mouseleave", function(){
+                autoPlay();
+            }, false)
+            _left.addEventListener("click", function(){
+                prev();
+            })
+            _right.addEventListener("click", function(){
+                next();
+            })
+            var dotLen = _dots.length;
+            for (let i = 0; i < dotLen; i++) {
+                (function(index){
+                    _dots[index].addEventListener("click", function(){
+                        newLeft = -600 * (index + 1);
+                        startMove(_wrap,{"left":newLeft});
+                        dotIndex = index;
+                        setCurrentDot();
+                    },false)
+                }(i))
+            }
 
             var timer = 0;
             var dotIndex = 0;
-            var dotLen = dot.length;
             var newLeft = -600;
             function next() {
                 if(newLeft === -3000){
@@ -70,6 +128,11 @@
                 }
                 newLeft -= 600;
                 startMove(_wrap,{ left: newLeft });
+                dotIndex++;
+                if(dotIndex === 5){
+                    dotIndex = 0;
+                }
+                setCurrentDot(); 
             }
             function prev() {
                 if(newLeft === 0) {
@@ -78,6 +141,11 @@
                 }
                 newLeft += 600;
                 startMove(_wrap,{ left: newLeft });
+                dotIndex--;
+                if(dotIndex === -1){
+                    dotIndex = 4;
+                }
+                setCurrentDot();
             }
 
             function autoPlay(){
@@ -87,11 +155,14 @@
             }
             
             function setCurrentDot(){
-                for (let i = 0; i < dot.length; i++) {
-                    dot[i].className = '';                  
+                for (let i = 0; i < _dots.length; i++) {
+                    _dots[i].className = '';                  
                 }
-                dot[dotIndex].className = 'on';
+                _dots[dotIndex].className = 'on';
             }
+
+            autoPlay();
+            setCurrentDot();
             
         }
     </script>
@@ -114,6 +185,8 @@
             <span>4</span>
             <span>5</span>
         </div>
+        <a href="javascript:void(0);" class="jt jt_left">&lt;</a>
+        <a href="javascript:void(0);" class="jt jt_right">&gt;</a>
     </div>
 </body>
 </html>

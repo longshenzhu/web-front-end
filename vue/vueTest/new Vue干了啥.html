@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="example">
+    <button @click="add">添加一条数据</button>
+    <div v-for="item in items">
+        {{item.name}}
+    </div>
+</div>
+<script >
+    // 创建根实例
+    new Vue({
+        el: '#example',
+        data() {
+            return {
+                message: "new Vue()干了啥",
+                count : 1,
+                items : [
+                    {name: "刘琪瑶"},
+                    {name: "liuqiyao"},
+                    {name: "刘老师"},
+                ]
+            }
+        },
+        methods: {
+            add: function (){
+                this.items.unshift({
+                    name: "刘卓倩"
+                });
+                this.items.push({
+                    name: "刘zhuoqian"
+                })
+            }
+        },
+    }).$mount();
+</script>
+
+</body>
+</html>

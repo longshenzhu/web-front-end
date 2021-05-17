@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三栏布局</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        main {
+            height: 100px;
+        }
+        .w150 {
+            width: 150px;
+            height: 50px;
+        }
+        .left {
+            float: left;
+        }
+        .right {
+            float: right;
+        }
+        .orange {
+            background-color: orange;
+        }
+        .green {
+            background-color: green;
+        }
+        .hidden {
+            overflow: hidden;
+        }
+
+        .flex {
+            display: flex;
+        }
+        .flex main {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="layout">
+        <section>
+            <aside class="w150 left orange">aside</aside>
+            <aside class="w150 right orange">aside</aside>
+            <main class="green hidden">main</main>
+        </section>
+        <hr />
+        <section class="flex">
+            <aside class="w150  orange">aside</aside>
+            <main class="green">main</main>
+            <aside class="w150  orange">aside</aside>
+        </section>
+    </div>
+</body>
+</html>
