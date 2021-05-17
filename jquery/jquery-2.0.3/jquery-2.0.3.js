@@ -388,6 +388,13 @@ jQuery.extend({
 	// trim() : 去前后空格
 	// makeArray() : 类数组转真数组
 	// inArray() : 数组版indexOf
+	// merge() :
+	// greg() :
+	// map() :
+	// guid : 
+	// proxy() :
+	// access() :
+	// now() :
 	// Unique for each copy of jQuery on the page
 	expando: "jQuery" + ( core_version + Math.random() ).replace( /\D/g, "" ),
 
@@ -602,13 +609,15 @@ jQuery.extend({
 	nodeName: function( elem, name ) {
 		return elem.nodeName && elem.nodeName.toLowerCase() === name.toLowerCase();
 	},
-
+	// 支持数组遍历
+	// 支持类数组遍历 ： arguments childNodes getElementsByTagName
+	// 支持json遍历
 	// args is for internal usage only
 	each: function( obj, callback, args ) {
 		var value,
 			i = 0,
 			length = obj.length,
-			isArray = isArraylike( obj );
+			isArray = isArraylike( obj );   //数组、类数组为true
 
 		if ( args ) {
 			if ( isArray ) {
