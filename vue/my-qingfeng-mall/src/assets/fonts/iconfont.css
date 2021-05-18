@@ -1,0 +1,120 @@
+@font-face {
+    font-family: 'fuse-icomoon';
+    src:  url('./fuse-icomoon.eot?eeyxmx');
+    src:  url('./fuse-icomoon.eot?eeyxmx#iefix') format('embedded-opentype'),
+    url('./fuse-icomoon.ttf?eeyxmx') format('truetype'),
+    url('./fuse-icomoon.woff?eeyxmx') format('woff'),
+    url('./fuse-icomoon.svg?eeyxmx#fuse-icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+[class^="fu-icon-"], [class*=" fu-icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'fuse-icomoon' !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.fu-icon-bell:before {
+    content: "\e900";
+}
+.fu-icon-blackboard:before {
+    content: "\e901";
+}
+.fu-icon-block-arrow:before {
+    content: "\e902";
+}
+.fu-icon-broadcast:before {
+    content: "\e903";
+}
+.fu-icon-brush:before {
+    content: "\e904";
+}
+.fu-icon-code:before {
+    content: "\e905";
+}
+.fu-icon-courseware:before {
+    content: "\e906";
+}
+.fu-icon-discuss:before {
+    content: "\e907";
+}
+.fu-icon-double-screen:before {
+    content: "\e908";
+}
+.fu-icon-enlarge:before {
+    content: "\e909";
+}
+.fu-icon-file:before {
+    content: "\e90a";
+}
+.fu-icon-lamp:before {
+    content: "\e90b";
+}
+.fu-icon-launch:before {
+    content: "\e90c";
+}
+.fu-icon-mobile:before {
+    content: "\e90d";
+}
+.fu-icon-more:before {
+    content: "\e90e";
+}
+.fu-icon-pc:before {
+    content: "\e90f";
+}
+.fu-icon-pen:before {
+    content: "\e910";
+}
+.fu-icon-people:before {
+    content: "\e911";
+}
+.fu-icon-pick:before {
+    content: "\e912";
+}
+.fu-icon-record:before {
+    content: "\e913";
+}
+.fu-icon-return:before {
+    content: "\e914";
+}
+.fu-icon-revoke:before {
+    content: "\e915";
+}
+.fu-icon-round:before {
+    content: "\e916";
+}
+.fu-icon-screen:before {
+    content: "\e917";
+}
+.fu-icon-screen-1:before {
+    content: "\e918";
+}
+.fu-icon-screenshot:before {
+    content: "\e919";
+}
+.fu-icon-timer:before {
+    content: "\e91a";
+}
+.fu-icon-tool:before {
+    content: "\e91b";
+}
+.fu-icon-up:before {
+    content: "\e91c";
+}
+.fu-icon-vote:before {
+    content: "\e91d";
+}
+.fu-icon-zoom-in:before {
+    content: "\e91e";
+}
