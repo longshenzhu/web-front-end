@@ -1,3 +1,30 @@
+<<<<<<< HEAD
+import vue from 'vue';
+import vuex from 'vuex';
+
+
+vue.use(vuex);
+
+const store = new vuex.Store({
+    state: {
+
+    },
+    mutations: {
+
+    },
+    actions: {
+
+    },
+    getters: {
+        
+    },
+    modules: {
+
+    }
+});
+
+export default store;
+=======
 import Vue from 'vue';
 import Vuex from 'vuex';
 
@@ -14,3 +41,4 @@ export default new Vuex.Store({
     getters,
     modules: { }
 })
+>>>>>>> a57205fb59dd7e00a7d86fd73480350978ac8c3a

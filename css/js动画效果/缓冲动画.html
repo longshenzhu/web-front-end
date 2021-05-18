@@ -67,28 +67,6 @@
             div1.addEventListener("mouseleave", function(target, event) {
                 startMove(-200);
             })
-
-            const div2 = document.getElementById("div2");
-            let timer2 = null;
-            var alpha = 30;
-            function startChange(target) {
-                clearInterval(timer2);
-                timer2 = setInterval(()=>{
-                    let speed = alpha < target? 1 : -1;
-                    if(alpha == target){
-                        clearInterval(timer2);
-                    } else {
-                        alpha += speed;
-                        div2.style.opacity = alpha/ 100;
-                    } 
-                },10);
-            }
-            div2.addEventListener("mouseenter", function(target, event) {
-                startChange(100);
-            })
-            div2.addEventListener("mouseleave", function(target, event) {
-                startChange(30);
-            })
         }
     </script>
 </body>
